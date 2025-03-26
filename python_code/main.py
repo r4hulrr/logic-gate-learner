@@ -18,7 +18,7 @@ def load_data():
     df = np.array(df)
 
     # We want to use 80% of csv as training data and 20% as testing and m is the number of samples
-    m , n = df.shape
+    m  = df.shape[0]
     m = int(0.8*m)
     train = df[:m]
     test = df[m:]
@@ -33,17 +33,18 @@ def load_data():
 
     # Transpose pixels to shape (784, m) to aid with calculations
     a0 = pixels.T
+    n = a0.shape[0]
 
     # One-hot encode labels
     y = np.zeros((10, m))
     for i in range(m):
         y[labels[i], i] = 1               # Set 1 at correct digit index
 
-    return a0, y
+    return a0, y, n
 
 # Assign random values to weights and biases
 # We want small weights initially to avoid early saturation
-def initialize_parameters():
+def initialize_parameters(n):
     w1 = np.random.rand(10,n) * 0.01
     w2 = np.random.rand(10,10) * 0.01
     w3 = np.random.rand(10,10) * 0.01
@@ -65,7 +66,7 @@ def forward_prop(a0, w1, w2, w3, b1, b2, b3):
     return a1, a2, a3
 
 # Back propagation
-def back_prop(a0, a1, a2, a3, w1, w2, w3, y, m):
+def back_prop(a0, a1, a2, a3, w1, w2, w3, b1, b2, b3, y, m, learning_rate):
     dz3 = a3 - y
     dw3 = 1/m * ( dz3 @ a2.T )
     db3 = 1/m * np.sum( dz3, axis = 1, keepdims = True)
@@ -79,14 +80,34 @@ def back_prop(a0, a1, a2, a3, w1, w2, w3, y, m):
     db1 = 1/m * np.sum(dz1, axis = 1, keepdims = True)
 
     # Updating Parameters
-    learning_rate = 0.01
 
-    w1 = learning_rate * dw1
-    b1 = learning_rate * db1
-    w2 = learning_rate * dw2
-    b2 = learning_rate * db2
-    w3 = learning_rate * dw3
-    b3 = learning_rate * db3
+    w1 = w1 - learning_rate * dw1
+    b1 = b1 - learning_rate * db1
+    w2 = w2 - learning_rate * dw2
+    b2 = b2 - learning_rate * db2
+    w3 = w3 - learning_rate * dw3
+    b3 = b3 - learning_rate * db3
 
     return w1, w2, w3, b1, b2 , b3
+
+def compute_accuracy(a0, w1, w2, w3, b1, b2, b3, y):
+    a1, a2, a3 = forward_prop(a0, w1, w2, w3, b1, b2, b3)
+    predictions = np.argmax(a3, axis=0)
+    labels = np.argmax(y, axis=0)
+    accuracy = np.mean(predictions == labels) * 100
+    print(f"Test Accuracy: {accuracy:.2f}%")
+
+def train(a0, y, n, t, learning_rate):
+    w1, w2, w3, b1, b2, b3 = initialize_parameters(n)
+    for i in range(t):
+        a1, a2, a3 = forward_prop(a0, w1, w2, w3, b1, b2, b3)
+        w1 , w2 , w3, b1, b2, b3 = back_prop(a0, a1, a2, a3, w1, w2, w3, b1, b2, b3, y, n, learning_rate)
+        if i%50 == 0:
+            compute_accuracy(a0, w1, w2, w3, b1, b2, b3, y)
+
+
+if __name__ == "__main__":
+    a0, y, n = load_data()
+    train(a0, y, n, 1000, 0.1)
+    pass
 
