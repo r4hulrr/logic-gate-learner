@@ -1,0 +1,6 @@
+Time resolution is 1 ps
+C1 = 14
+C2 = 32
+C3 = 50
+Test Passed
+$finish called at time : 125 ns : File "C:/Vitis_Vivado/matrix_mult_3x3/matrix_mult_3x3.srcs/sim_1/new/tb.v" Line 56
