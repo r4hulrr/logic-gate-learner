@@ -1,0 +1,8 @@
+0.7
+2020.2
+Apr 18 2022
+16:05:34
+C:/Vitis_Vivado/matrix_mul_nX1/matrix_mul_nX1.sim/sim_1/behav/xsim/glbl.v,1649976174,verilog,,,,glbl,,,,,,,,
+C:/Vitis_Vivado/matrix_mul_nX1/matrix_mul_nX1.srcs/sim_1/new/top_tb.v,1743660642,verilog,,,,tb_top,,,,,,,,
+C:/Vitis_Vivado/matrix_mul_nX1/matrix_mul_nX1.srcs/sources_1/new/dual_port_bram.v,1743664004,verilog,,C:/Vitis_Vivado/matrix_mul_nX1/matrix_mul_nX1.srcs/sources_1/new/top.v,,dual_port_bram,,,,,,,,
+C:/Vitis_Vivado/matrix_mul_nX1/matrix_mul_nX1.srcs/sources_1/new/top.v,1743668754,verilog,,C:/Vitis_Vivado/matrix_mul_nX1/matrix_mul_nX1.srcs/sim_1/new/top_tb.v,,top,,,,,,,,
