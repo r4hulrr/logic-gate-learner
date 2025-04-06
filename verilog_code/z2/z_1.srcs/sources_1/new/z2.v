@@ -310,15 +310,16 @@ blk_mem_gen_100 BRAM_11 (
                state <= COMPUTE;   
             end else begin
                 case (count)
-                    1: input_value <= C2_in;
-                    2: input_value <= C3_in;
-                    3: input_value <= C4_in;
-                    4: input_value <= C5_in;
-                    5: input_value <= C6_in;
-                    6: input_value <= C7_in;
-                    7: input_value <= C8_in;
-                    8: input_value <= C9_in;
-                    9: input_value <= C10_in;
+                    1: input_value <= C1_in;
+                    2: input_value <= C2_in;
+                    3: input_value <= C3_in;
+                    4: input_value <= C4_in;
+                    5: input_value <= C5_in;
+                    6: input_value <= C6_in;
+                    7: input_value <= C7_in;
+                    8: input_value <= C8_in;
+                    9: input_value <= C9_in;
+                    10: input_value <= C10_in;
                 endcase
                 state <= LOAD;
             end
