@@ -282,8 +282,25 @@ blk_mem_gen_10 BRAM_11 (
           accum9 <= accum9 + ((douta_i * douta_9) >> 15);
           accum10 <= accum10 + ((douta_i * douta_10) >> 15);
         
-          if (count == 101) begin
+          if (count == 100) begin
+            ena_i <= 0;
+            ena_1 <= 0;
+            ena_2 <= 0;
+            ena_3 <= 0;
+            ena_4 <= 0;
+            ena_5 <= 0;
+            ena_6 <= 0;
+            ena_7 <= 0;
+            ena_8 <= 0;
+            ena_9 <= 0;
+            ena_10 <= 0;
+            
+            // BRAM 11
+            addra_b1 <= 0;
+            ena_b1 <= 1;
+            
             state <= WAIT;
+            
           end else begin
             count <= count + 1;
             state <= WAIT;
@@ -292,18 +309,7 @@ blk_mem_gen_10 BRAM_11 (
         end 
         
         WAIT: begin
-            if(count == 101)begin
-               ena_i <= 0;
-               ena_1 <= 0;
-               ena_2 <= 0;
-               ena_3 <= 0;
-               ena_4 <= 0;
-               ena_5 <= 0;
-               ena_6 <= 0;
-               ena_7 <= 0;
-               ena_8 <= 0;
-               ena_9 <= 0;
-               ena_10 <= 0;
+            if(count == 100)begin
                state <= COMPUTE;   
             end else begin
                 state <= LOAD;
@@ -311,18 +317,27 @@ blk_mem_gen_10 BRAM_11 (
         end
 
         COMPUTE: begin
-            C1 <= accum1;
-            C2 <= accum2;
-            C3 <= accum3;
-            C4 <= accum4;
-            C5 <= accum5;
-            C6 <= accum6;
-            C7 <= accum7;
-            C8 <= accum8;
-            C9 <= accum9;
-            C10 <= accum10;
+          case(bias_count)
+            0: C1 <= accum1 + douta_b1;
+            1: C2 <= accum2 + douta_b1;
+            2: C3 <= accum3 + douta_b1;
+            3: C4 <= accum4 + douta_b1;
+            4: C5 <= accum5 + douta_b1;
+            5: C6 <= accum6 + douta_b1;
+            6: C7 <= accum7 + douta_b1;
+            7: C8 <= accum8 + douta_b1;
+            8: C9 <= accum9 + douta_b1;
+            9: C10 <= accum10 + douta_b1;
+          endcase
+           if(bias_count == 10)begin
+            ena_b1 <= 0;
             done <= 1;
             state <= IDLE;
+           end else begin
+            bias_count <= bias_count + 1;
+            addra_b1 <= addra_b1 + 1;
+            state <= WAIT ;
+          end
           
         end
       endcase
