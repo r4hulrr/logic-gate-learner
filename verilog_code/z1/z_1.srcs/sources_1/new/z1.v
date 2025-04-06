@@ -133,7 +133,7 @@ blk_mem_gen_10 BRAM_11 (
   .clka(clk),    // input wire clka
   .ena(ena_b1),      // input wire ena
   .wea(1'b0),      // input wire [0 : 0] wea
-  .addra(addra_b10),  // input wire [3 : 0] addra
+  .addra(addra_b1),  // input wire [3 : 0] addra
   .dina(18'b0),    // input wire [17 : 0] dina
   .douta(douta_b1)  // output wire [17 : 0] douta
 );
@@ -175,6 +175,9 @@ blk_mem_gen_10 BRAM_11 (
       // BRAM 10
       ena_10 <= 0;
       addra_10 <= 0;
+      // BRAM 11
+      addra_b1 <= 0;
+      ena_b1 <= 0;
       
       // accumulate regs
       accum1 <= 0;
@@ -243,6 +246,7 @@ blk_mem_gen_10 BRAM_11 (
             ena_8 <= 1;
             ena_9 <= 1;
             ena_10 <= 1;
+            ena_b1 <= 1;
           end
         end
 
@@ -281,35 +285,29 @@ blk_mem_gen_10 BRAM_11 (
           accum8 <= accum8 + ((douta_i * douta_8) >> 15);
           accum9 <= accum9 + ((douta_i * douta_9) >> 15);
           accum10 <= accum10 + ((douta_i * douta_10) >> 15);
-        
-          if (count == 100) begin
-            ena_i <= 0;
-            ena_1 <= 0;
-            ena_2 <= 0;
-            ena_3 <= 0;
-            ena_4 <= 0;
-            ena_5 <= 0;
-            ena_6 <= 0;
-            ena_7 <= 0;
-            ena_8 <= 0;
-            ena_9 <= 0;
-            ena_10 <= 0;
-            
-            // BRAM 11
-            addra_b1 <= 0;
-            ena_b1 <= 1;
-            
-            state <= WAIT;
-            
-          end else begin
+
             count <= count + 1;
             state <= WAIT;
-          end
  
         end 
         
         WAIT: begin
-            if(count == 100)begin
+            if(count == 101)begin
+               if(bias_count == 0) begin
+                    ena_i <= 0;
+                    ena_1 <= 0;
+                    ena_2 <= 0;
+                    ena_3 <= 0;
+                    ena_4 <= 0;
+                    ena_5 <= 0;
+                    ena_6 <= 0;
+                    ena_7 <= 0;
+                    ena_8 <= 0;
+                    ena_9 <= 0;
+                    ena_10 <= 0;
+                    
+                    
+               end
                state <= COMPUTE;   
             end else begin
                 state <= LOAD;
@@ -318,16 +316,16 @@ blk_mem_gen_10 BRAM_11 (
 
         COMPUTE: begin
           case(bias_count)
-            0: C1 <= accum1 + douta_b1;
-            1: C2 <= accum2 + douta_b1;
-            2: C3 <= accum3 + douta_b1;
-            3: C4 <= accum4 + douta_b1;
-            4: C5 <= accum5 + douta_b1;
-            5: C6 <= accum6 + douta_b1;
-            6: C7 <= accum7 + douta_b1;
-            7: C8 <= accum8 + douta_b1;
-            8: C9 <= accum9 + douta_b1;
-            9: C10 <= accum10 + douta_b1;
+            1: C1 <= accum1 + douta_b1;
+            2: C2 <= accum2 + douta_b1;
+            3: C3 <= accum3 + douta_b1;
+            4: C4 <= accum4 + douta_b1;
+            5: C5 <= accum5 + douta_b1;
+            6: C6 <= accum6 + douta_b1;
+            7: C7 <= accum7 + douta_b1;
+            8: C8 <= accum8 + douta_b1;
+            9: C9 <= accum9 + douta_b1;
+            10: C10 <= accum10 + douta_b1;
           endcase
            if(bias_count == 10)begin
             ena_b1 <= 0;
