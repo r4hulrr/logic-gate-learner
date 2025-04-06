@@ -5,7 +5,7 @@ module top (
     input wire reset,
     input wire start,
     output reg done,
-    output reg [17:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10 
+    output reg signed [31:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10 
 );
 
   // FSM States
@@ -15,12 +15,12 @@ module top (
   // BRAM interface signals for input and weights
   reg ena_i, ena_1, ena_2, ena_3, ena_4, ena_5, ena_6, ena_7, ena_8, ena_9, ena_10;
   reg [9 : 0] addra_i, addra_1, addra_2, addra_3, addra_4, addra_5, addra_6, addra_7, addra_8, addra_9, addra_10;
-  wire [17 : 0] douta_i, douta_1, douta_2, douta_3, douta_4, douta_5, douta_6, douta_7, douta_8, douta_9, douta_10;
+  wire signed [17 : 0] douta_i, douta_1, douta_2, douta_3, douta_4, douta_5, douta_6, douta_7, douta_8, douta_9, douta_10;
   
   // BRAM interface signals for biases 
   reg ena_b1;
   reg [3 : 0] addra_b1; 
-  wire [17 : 0] douta_b1;
+  wire signed [17 : 0] douta_b1;
   // Accumulator 
   reg [47:0] accum1, accum2, accum3, accum4, accum5, accum6, accum7, accum8, accum9, accum10;
  
@@ -275,16 +275,16 @@ blk_mem_gen_10 BRAM_11 (
           addra_10 <= addra_10 + 1;
           
           
-          accum1 <= accum1 + ((douta_i * douta_1) >> 15);
-          accum2 <= accum2 + ((douta_i * douta_2) >> 15);
-          accum3 <= accum3 + ((douta_i * douta_3) >> 15);
-          accum4 <= accum4 + ((douta_i * douta_4) >> 15);
-          accum5 <= accum5 + ((douta_i * douta_5) >> 15);
-          accum6 <= accum6 + ((douta_i * douta_6) >> 15);
-          accum7 <= accum7 + ((douta_i * douta_7) >> 15);
-          accum8 <= accum8 + ((douta_i * douta_8) >> 15);
-          accum9 <= accum9 + ((douta_i * douta_9) >> 15);
-          accum10 <= accum10 + ((douta_i * douta_10) >> 15);
+          accum1 <= accum1 + ((douta_i * douta_1) >>> 15);
+          accum2 <= accum2 + ((douta_i * douta_2) >>> 15);
+          accum3 <= accum3 + ((douta_i * douta_3) >>> 15);
+          accum4 <= accum4 + ((douta_i * douta_4) >>> 15);
+          accum5 <= accum5 + ((douta_i * douta_5) >>> 15);
+          accum6 <= accum6 + ((douta_i * douta_6) >>> 15);
+          accum7 <= accum7 + ((douta_i * douta_7) >>> 15);
+          accum8 <= accum8 + ((douta_i * douta_8) >>> 15);
+          accum9 <= accum9 + ((douta_i * douta_9) >>> 15);
+          accum10 <= accum10 + ((douta_i * douta_10) >>> 15);
 
             count <= count + 1;
             state <= WAIT;
@@ -327,7 +327,17 @@ blk_mem_gen_10 BRAM_11 (
             9: C9 <= accum9 + douta_b1;
             10: C10 <= accum10 + douta_b1;
           endcase
-           if(bias_count == 10)begin
+           if(bias_count == 11)begin
+            C1 <= (C1[31]) ? 32'd0 : C1;
+            C2 <= (C2[31]) ? 32'd0 : C2;
+            C3 <= (C3[31]) ? 32'd0 : C3;
+            C4 <= (C4[31]) ? 32'd0 : C4;
+            C5 <= (C5[31]) ? 32'd0 : C5;
+            C6 <= (C6[31]) ? 32'd0 : C6;
+            C7 <= (C7[31]) ? 32'd0 : C7;
+            C8 <= (C8[31]) ? 32'd0 : C8;
+            C9 <= (C9[31]) ? 32'd0 : C9;
+            C10 <= (C10[31]) ? 32'd0 : C10;
             ena_b1 <= 0;
             done <= 1;
             state <= IDLE;
