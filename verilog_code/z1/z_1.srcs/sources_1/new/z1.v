@@ -12,11 +12,15 @@ module top (
   parameter IDLE = 2'b00, LOAD = 2'b01, WAIT = 2'b10, COMPUTE = 2'b11;
   reg [1:0] state;
   
-  // BRAM interface signals
+  // BRAM interface signals for input and weights
   reg ena_i, ena_1, ena_2, ena_3, ena_4, ena_5, ena_6, ena_7, ena_8, ena_9, ena_10;
   reg [9 : 0] addra_i, addra_1, addra_2, addra_3, addra_4, addra_5, addra_6, addra_7, addra_8, addra_9, addra_10;
   wire [17 : 0] douta_i, douta_1, douta_2, douta_3, douta_4, douta_5, douta_6, douta_7, douta_8, douta_9, douta_10;
   
+  // BRAM interface signals for biases 
+  reg ena_b1;
+  reg [3 : 0] addra_b1; 
+  wire [17 : 0] douta_b1;
   // Accumulator 
   reg [47:0] accum1, accum2, accum3, accum4, accum5, accum6, accum7, accum8, accum9, accum10;
  
@@ -123,6 +127,15 @@ blk_mem_gen_input BRAM_INPUT (
   .addra(addra_10),  // input wire [9 : 0] addra
   .dina(18'b0),    // input wire [17 : 0] dina
   .douta(douta_10)  // output wire [17 : 0] douta
+);
+
+blk_mem_gen_10 BRAM_11 (
+  .clka(clk),    // input wire clka
+  .ena(ena_b1),      // input wire ena
+  .wea(1'b0),      // input wire [0 : 0] wea
+  .addra(addra_b10),  // input wire [3 : 0] addra
+  .dina(18'b0),    // input wire [17 : 0] dina
+  .douta(douta_b1)  // output wire [17 : 0] douta
 );
   // FSM Logic
   always @(posedge clk or posedge reset) begin
