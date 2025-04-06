@@ -20,7 +20,7 @@ module z2 (
 
   reg ena_b1;
   reg [3:0] addra_b1;
-  wire [17:0] douta_b1;
+  wire [15:0] douta_b1;
 
   // Signed accumulators
   reg signed [47:0] accum1, accum2, accum3, accum4, accum5, accum6, accum7, accum8, accum9, accum10;
