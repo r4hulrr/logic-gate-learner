@@ -292,7 +292,7 @@ blk_mem_gen_10 BRAM_11 (
         end 
         
         WAIT: begin
-            if(count == 785)begin
+            if(count == 101)begin
                if(bias_count == 0) begin
                     ena_i <= 0;
                     ena_1 <= 0;
