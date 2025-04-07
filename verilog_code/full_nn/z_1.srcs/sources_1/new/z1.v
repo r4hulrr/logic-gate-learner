@@ -22,12 +22,16 @@ module z1 (
   reg [3 : 0] addra_b1; 
   wire signed [15 : 0] douta_b1;
   // Accumulator 
-  reg [47:0] accum1, accum2, accum3, accum4, accum5, accum6, accum7, accum8, accum9, accum10;
+  reg signed [47:0] accum1, accum2, accum3, accum4, accum5, accum6, accum7, accum8, accum9, accum10;
  
   // Counter and initial check
   reg [9:0] count;
  
   reg [4:0] bias_count;
+  
+  // input buffer
+  reg signed [31:0] input_value;
+  
   // BRAM Instances
   
 blk_mem_gen_input BRAM_INPUT (
@@ -234,6 +238,8 @@ blk_mem_gen_10 BRAM_11 (
             C8 <= 0;
             C9 <= 0;
             C10 <= 0;
+            
+            input_value <= douta_i;
             // Enable BRAM reads
             ena_i <= 1;
             ena_1 <= 1;
@@ -275,16 +281,16 @@ blk_mem_gen_10 BRAM_11 (
           addra_10 <= addra_10 + 1;
           
           
-          accum1 <= accum1 + (($signed(douta_i) * $signed(douta_1)) >>> 15);
-          accum2 <= accum2 + (($signed(douta_i) * $signed(douta_2)) >>> 15);
-          accum3 <= accum3 + (($signed(douta_i) * $signed(douta_3)) >>> 15);
-          accum4 <= accum4 + (($signed(douta_i) * $signed(douta_4)) >>> 15);
-          accum5 <= accum5 + (($signed(douta_i) * $signed(douta_5)) >>> 15);
-          accum6 <= accum6 + (($signed(douta_i) * $signed(douta_6)) >>> 15);
-          accum7 <= accum7 + (($signed(douta_i) * $signed(douta_7)) >>> 15);
-          accum8 <= accum8 + (($signed(douta_i) * $signed(douta_8)) >>> 15);
-          accum9 <= accum9 + (($signed(douta_i) * $signed(douta_9)) >>> 15);
-          accum10 <= accum10 + (($signed(douta_i) * $signed(douta_10)) >>> 15);
+          accum1 <= accum1 + (($signed(input_value) * $signed(douta_1)) >>> 15);
+          accum2 <= accum2 + (($signed(input_value) * $signed(douta_2)) >>> 15);
+          accum3 <= accum3 + (($signed(input_value) * $signed(douta_3)) >>> 15);
+          accum4 <= accum4 + (($signed(input_value) * $signed(douta_4)) >>> 15);
+          accum5 <= accum5 + (($signed(input_value) * $signed(douta_5)) >>> 15);
+          accum6 <= accum6 + (($signed(input_value) * $signed(douta_6)) >>> 15);
+          accum7 <= accum7 + (($signed(input_value) * $signed(douta_7)) >>> 15);
+          accum8 <= accum8 + (($signed(input_value) * $signed(douta_8)) >>> 15);
+          accum9 <= accum9 + (($signed(input_value) * $signed(douta_9)) >>> 15);
+          accum10 <= accum10 + (($signed(input_value) * $signed(douta_10)) >>> 15);
 
             count <= count + 1;
             state <= WAIT;
@@ -310,6 +316,7 @@ blk_mem_gen_10 BRAM_11 (
                end
                state <= COMPUTE;   
             end else begin
+                input_value <= douta_i;
                 state <= LOAD;
             end
         end
