@@ -86,15 +86,15 @@ module top(
                     start_z3 <= 0;
                     if (done_z3) begin
                         argmax_index = 4'd0;
-                        if (C2 > C1) argmax_index = 4'd1;
-                        if (C3 > C[argmax_index]) argmax_index = 4'd2;
-                        if (C4 > C[argmax_index]) argmax_index = 4'd3;
-                        if (C5 > C[argmax_index]) argmax_index = 4'd4;
-                        if (C6 > C[argmax_index]) argmax_index = 4'd5;
-                        if (C7 > C[argmax_index]) argmax_index = 4'd6;
-                        if (C8 > C[argmax_index]) argmax_index = 4'd7;
-                        if (C9 > C[argmax_index]) argmax_index = 4'd8;
-                        if (C10 > C[argmax_index]) argmax_index = 4'd9;
+                        if (z3_C2 > z3_C1) argmax_index = 4'd1;
+                        if (z3_C3 > z3_C2) argmax_index = 4'd2;
+                        if (z3_C4 > z3_C3) argmax_index = 4'd3;
+                        if (z3_C5 > z3_C4) argmax_index = 4'd4;
+                        if (z3_C6 > z3_C5) argmax_index = 4'd5;
+                        if (z3_C7 > z3_C6) argmax_index = 4'd6;
+                        if (z3_C8 > z3_C7) argmax_index = 4'd7;
+                        if (z3_C9 > z3_C8) argmax_index = 4'd8;
+                        if (z3_C10 > z3_C9) argmax_index = 4'd9;
                         done <= 1;
                         state <= IDLE;
                     end
