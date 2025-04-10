@@ -1,4 +1,4 @@
-# Neural Network Hardware Accelerator ( Ongoing Project )
+# Neural Network Hardware Accelerator (Ongoing Project)
 
 This project implements a fully custom 2-layer neural network from scratch for MNIST digit classification, bridging Python-based neural network design and hardware-accelerated inference using Verilog on the Arty A7-100T FPGA.
 
