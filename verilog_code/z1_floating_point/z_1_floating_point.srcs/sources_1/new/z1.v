@@ -25,7 +25,11 @@ module z1 #(parameter DEPTH = 784)
     // Counter and initial check
     reg     [$clog2(DEPTH)-1:0] r_count;
     reg     [3:0] r_bias_count;
-      
+    
+    // Floating Point wires
+    wire    [31:0] w_fma_result;
+    wire    w_fma_valid;
+    
     // BRAM Instances
   
     blk_mem_gen_input BRAM_INPUT 
@@ -48,21 +52,14 @@ module z1 #(parameter DEPTH = 784)
     );
     
     // Floating Point Fused Multiply Instances 
-    floating_point_0 your_instance_name 
+    fma_wrapper fma_c1
     (
-        .aclk(i_clk),                                  // input wire aclk
-        .s_axis_a_tvalid(1'b1),            // input wire s_axis_a_tvalid
-        .s_axis_a_tready(),            // output wire s_axis_a_tready
-        .s_axis_a_tdata(),              // input wire [31 : 0] s_axis_a_tdata
-        .s_axis_b_tvalid(s_axis_b_tvalid),            // input wire s_axis_b_tvalid
-        .s_axis_b_tready(s_axis_b_tready),            // output wire s_axis_b_tready
-        .s_axis_b_tdata(s_axis_b_tdata),              // input wire [31 : 0] s_axis_b_tdata
-        .s_axis_c_tvalid(s_axis_c_tvalid),            // input wire s_axis_c_tvalid
-        .s_axis_c_tready(s_axis_c_tready),            // output wire s_axis_c_tready
-        .s_axis_c_tdata(s_axis_c_tdata),              // input wire [31 : 0] s_axis_c_tdata
-        .m_axis_result_tvalid(m_axis_result_tvalid),  // output wire m_axis_result_tvalid
-        .m_axis_result_tready(m_axis_result_tready),  // input wire m_axis_result_tready
-        .m_axis_result_tdata(m_axis_result_tdata)    // output wire [31 : 0] m_axis_result_tdata
+        .i_clk(i_clk),
+        .i_aval(w_a),
+        .i_bval(w_b),
+        .i_cval(w_c),
+        .o_result(w_result),
+        .o_result_valid(w_result_valid)
     );
 
     // FSM Logic
