@@ -2,13 +2,16 @@
 
 module top_tb;
 
+    // Inputs
     reg clk;
     reg reset;
     reg start;
+
+    // Outputs
     wire done;
     wire [3:0] argmax_index;
 
-    // Instantiate the top module
+    // Instantiate DUT
     top uut (
         .clk(clk),
         .reset(reset),
@@ -17,28 +20,32 @@ module top_tb;
         .argmax_index(argmax_index)
     );
 
-    // Clock generation
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk;
-    end
+    // Clock generation (10ns period)
+    initial clk = 0;
+    always #5 clk = ~clk;
 
-    // Stimulus
     initial begin
-        $display("Starting testbench for top_nn_fsm...");
+        // Initial values
         reset = 1;
         start = 0;
+
+        // Wait a few cycles, then release reset
         #20;
         reset = 0;
-        #10;
+
+        // Start inference
+        #20;
         start = 1;
         #10;
         start = 0;
 
-        // Wait for computation to finish
-        wait(done);
+        // Wait for computation to complete
+        wait (done);
 
-        $display("Argmax index output = %d", argmax_index);
+        // Display result
+        $display("? Done! Predicted Class Index: %0d", argmax_index);
+
+        #50;
         $finish;
     end
 
