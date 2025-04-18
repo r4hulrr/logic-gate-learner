@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 
-module top (
+module z1 (
     input wire clk,
     input wire reset,
     input wire start,
     output reg done,
-    output reg signed [31:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10 
+    output reg signed [15:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10 
 );
 
   // FSM States
@@ -15,19 +15,24 @@ module top (
   // BRAM interface signals for input and weights
   reg ena_i, ena_1, ena_2, ena_3, ena_4, ena_5, ena_6, ena_7, ena_8, ena_9, ena_10;
   reg [9 : 0] addra_i, addra_1, addra_2, addra_3, addra_4, addra_5, addra_6, addra_7, addra_8, addra_9, addra_10;
-  wire signed [17 : 0] douta_i, douta_1, douta_2, douta_3, douta_4, douta_5, douta_6, douta_7, douta_8, douta_9, douta_10;
+  wire signed [15 : 0] douta_i, douta_1, douta_2, douta_3, douta_4, douta_5, douta_6, douta_7, douta_8, douta_9, douta_10;
   
   // BRAM interface signals for biases 
   reg ena_b1;
   reg [3 : 0] addra_b1; 
-  wire signed [17 : 0] douta_b1;
+  wire signed [15 : 0] douta_b1;
   // Accumulator 
-  reg [47:0] accum1, accum2, accum3, accum4, accum5, accum6, accum7, accum8, accum9, accum10;
- 
+  reg signed [63:0] accum1, accum2, accum3, accum4, accum5, accum6, accum7, accum8, accum9, accum10;
+  reg signed [31:0] c1_q30, c2_q30, c3_q30, c4_q30, c5_q30, c6_q30, c7_q30, c8_q30, c9_q30, c10_q30;
+
   // Counter and initial check
   reg [9:0] count;
  
   reg [4:0] bias_count;
+  
+  // input buffer
+  reg signed [31:0] input_value;
+  
   // BRAM Instances
   
 blk_mem_gen_input BRAM_INPUT (
@@ -234,6 +239,8 @@ blk_mem_gen_10 BRAM_11 (
             C8 <= 0;
             C9 <= 0;
             C10 <= 0;
+            
+            input_value <= douta_i;
             // Enable BRAM reads
             ena_i <= 1;
             ena_1 <= 1;
@@ -275,16 +282,16 @@ blk_mem_gen_10 BRAM_11 (
           addra_10 <= addra_10 + 1;
           
           
-          accum1 <= accum1 + ((douta_i * douta_1) >>> 15);
-          accum2 <= accum2 + ((douta_i * douta_2) >>> 15);
-          accum3 <= accum3 + ((douta_i * douta_3) >>> 15);
-          accum4 <= accum4 + ((douta_i * douta_4) >>> 15);
-          accum5 <= accum5 + ((douta_i * douta_5) >>> 15);
-          accum6 <= accum6 + ((douta_i * douta_6) >>> 15);
-          accum7 <= accum7 + ((douta_i * douta_7) >>> 15);
-          accum8 <= accum8 + ((douta_i * douta_8) >>> 15);
-          accum9 <= accum9 + ((douta_i * douta_9) >>> 15);
-          accum10 <= accum10 + ((douta_i * douta_10) >>> 15);
+          accum1 <= accum1 + (($signed(input_value) * $signed(douta_1)));
+          accum2 <= accum2 + (($signed(input_value) * $signed(douta_2)));
+          accum3 <= accum3 + (($signed(input_value) * $signed(douta_3)));
+          accum4 <= accum4 + (($signed(input_value) * $signed(douta_4)));
+          accum5 <= accum5 + (($signed(input_value) * $signed(douta_5)));
+          accum6 <= accum6 + (($signed(input_value) * $signed(douta_6)));
+          accum7 <= accum7 + (($signed(input_value) * $signed(douta_7)));
+          accum8 <= accum8 + (($signed(input_value) * $signed(douta_8)));
+          accum9 <= accum9 + (($signed(input_value) * $signed(douta_9)));
+          accum10 <= accum10 + (($signed(input_value) * $signed(douta_10)));
 
             count <= count + 1;
             state <= WAIT;
@@ -292,7 +299,7 @@ blk_mem_gen_10 BRAM_11 (
         end 
         
         WAIT: begin
-            if(count == 101)begin
+            if(count == 785)begin
                if(bias_count == 0) begin
                     ena_i <= 0;
                     ena_1 <= 0;
@@ -310,34 +317,35 @@ blk_mem_gen_10 BRAM_11 (
                end
                state <= COMPUTE;   
             end else begin
+                input_value <= douta_i;
                 state <= LOAD;
             end
         end
 
         COMPUTE: begin
           case(bias_count)
-            1: C1 <= accum1 + douta_b1;
-            2: C2 <= accum2 + douta_b1;
-            3: C3 <= accum3 + douta_b1;
-            4: C4 <= accum4 + douta_b1;
-            5: C5 <= accum5 + douta_b1;
-            6: C6 <= accum6 + douta_b1;
-            7: C7 <= accum7 + douta_b1;
-            8: C8 <= accum8 + douta_b1;
-            9: C9 <= accum9 + douta_b1;
-            10: C10 <= accum10 + douta_b1;
+            1: c1_q30 <= $signed(accum1) + ($signed(douta_b1) <<< 15);
+            2: c2_q30 <= $signed(accum2) + ($signed(douta_b1) <<< 15);
+            3: c3_q30 <= $signed(accum3) + ($signed(douta_b1) <<< 15);
+            4: c4_q30 <= $signed(accum4) + ($signed(douta_b1) <<< 15);
+            5: c5_q30 <= $signed(accum5) + ($signed(douta_b1) <<< 15);
+            6: c6_q30 <= $signed(accum6) + ($signed(douta_b1) <<< 15);
+            7: c7_q30 <= $signed(accum7) + ($signed(douta_b1) <<< 15);
+            8: c8_q30 <= $signed(accum8) + ($signed(douta_b1) <<< 15);
+            9: c9_q30 <= $signed(accum9) + ($signed(douta_b1) <<< 15);
+            10: c10_q30 <= $signed(accum10) + ($signed(douta_b1) <<< 15);
           endcase
            if(bias_count == 11)begin
-            C1 <= (C1[31]) ? 32'd0 : C1;
-            C2 <= (C2[31]) ? 32'd0 : C2;
-            C3 <= (C3[31]) ? 32'd0 : C3;
-            C4 <= (C4[31]) ? 32'd0 : C4;
-            C5 <= (C5[31]) ? 32'd0 : C5;
-            C6 <= (C6[31]) ? 32'd0 : C6;
-            C7 <= (C7[31]) ? 32'd0 : C7;
-            C8 <= (C8[31]) ? 32'd0 : C8;
-            C9 <= (C9[31]) ? 32'd0 : C9;
-            C10 <= (C10[31]) ? 32'd0 : C10;
+            C1  <= (((c1_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c1_q30 + 32'sd16384) >>> 15);
+            C2  <= (((c2_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c2_q30 + 32'sd16384) >>> 15);
+            C3  <= (((c3_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c3_q30 + 32'sd16384) >>> 15);
+            C4  <= (((c4_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c4_q30 + 32'sd16384) >>> 15);
+            C5  <= (((c5_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c5_q30 + 32'sd16384) >>> 15);
+            C6  <= (((c6_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c6_q30 + 32'sd16384) >>> 15);
+            C7  <= (((c7_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c7_q30 + 32'sd16384) >>> 15);
+            C8  <= (((c8_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c8_q30 + 32'sd16384) >>> 15);
+            C9  <= (((c9_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c9_q30 + 32'sd16384) >>> 15);
+            C10 <= (((c10_q30 + 32'sd16384) >>> 15) < 0) ? 16'sd0 : ((c10_q30 + 32'sd16384) >>> 15);
             ena_b1 <= 0;
             done <= 1;
             state <= IDLE;

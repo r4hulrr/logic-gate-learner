@@ -9,7 +9,7 @@ module tb_top;
   wire [17:0] C1;
 
   // Instantiate the top module
-  top uut (
+  z1 uut (
     .clk(clk),
     .reset(reset),
     .start(start),
