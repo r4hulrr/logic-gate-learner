@@ -57,20 +57,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="arty-a7-100"/>
-    <Option Name="WTXSimLaunchSim" Val="164"/>
+    <Option Name="WTXSimLaunchSim" Val="175"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="62"/>
-    <Option Name="WTModelSimExportSim" Val="62"/>
-    <Option Name="WTQuestaExportSim" Val="62"/>
+    <Option Name="WTXSimExportSim" Val="74"/>
+    <Option Name="WTModelSimExportSim" Val="74"/>
+    <Option Name="WTQuestaExportSim" Val="74"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="62"/>
-    <Option Name="WTRivieraExportSim" Val="62"/>
-    <Option Name="WTActivehdlExportSim" Val="62"/>
+    <Option Name="WTVcsExportSim" Val="74"/>
+    <Option Name="WTRivieraExportSim" Val="74"/>
+    <Option Name="WTActivehdlExportSim" Val="74"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -334,6 +334,18 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/memory/mnist_digit_q15_column.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/memory/input_vector_q15.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/memory/b1_q15.coe">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
