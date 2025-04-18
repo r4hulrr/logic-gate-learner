@@ -4,9 +4,9 @@ module z2 (
     input wire clk,
     input wire reset,
     input wire start,
-    input wire signed [31:0] C1_in, C2_in, C3_in, C4_in, C5_in, C6_in, C7_in, C8_in, C9_in, C10_in,
+    input wire signed [15:0] C1_in, C2_in, C3_in, C4_in, C5_in, C6_in, C7_in, C8_in, C9_in, C10_in,
     output reg done,
-    output reg signed [31:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10
+    output reg signed [15:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10
 );
 
   // FSM States
@@ -23,14 +23,14 @@ module z2 (
   wire [15:0] douta_b1;
 
   // Signed accumulators
-  reg signed [47:0] accum1, accum2, accum3, accum4, accum5, accum6, accum7, accum8, accum9, accum10;
-  reg signed [31:0] input_value;
+  reg signed [63:0] accum1, accum2, accum3, accum4, accum5, accum6, accum7, accum8, accum9, accum10;
+  reg signed [63:0] c1_q30, c2_q30, c3_q30, c4_q30, c5_q30, c6_q30, c7_q30, c8_q30, c9_q30, c10_q30;
 
   reg [9:0] count;
   reg [4:0] bias_count;
 
   // input buffer
-  reg signed [31:0] input_value;
+  reg signed [15:0] input_value;
   // BRAM Instances
   
   blk_mem_gen_00 BRAM_1(
@@ -178,16 +178,16 @@ blk_mem_gen_100 BRAM_11 (
           addra_7 <= addra_7 + 1; addra_8 <= addra_8 + 1; addra_9 <= addra_9 + 1;
           addra_10 <= addra_10 + 1;
 
-          accum1 <= accum1 + (($signed(input_value) * $signed(douta_1)) >>> 15);
-          accum2 <= accum2 + (($signed(input_value) * $signed(douta_2)) >>> 15);
-          accum3 <= accum3 + (($signed(input_value) * $signed(douta_3)) >>> 15);
-          accum4 <= accum4 + (($signed(input_value) * $signed(douta_4)) >>> 15);
-          accum5 <= accum5 + (($signed(input_value) * $signed(douta_5)) >>> 15);
-          accum6 <= accum6 + (($signed(input_value) * $signed(douta_6)) >>> 15);
-          accum7 <= accum7 + (($signed(input_value) * $signed(douta_7)) >>> 15);
-          accum8 <= accum8 + (($signed(input_value) * $signed(douta_8)) >>> 15);
-          accum9 <= accum9 + (($signed(input_value) * $signed(douta_9)) >>> 15);
-          accum10 <= accum10 + (($signed(input_value) * $signed(douta_10)) >>> 15);
+          accum1 <= accum1 + (($signed(input_value) * $signed(douta_1)));
+          accum2 <= accum2 + (($signed(input_value) * $signed(douta_2)));
+          accum3 <= accum3 + (($signed(input_value) * $signed(douta_3)));
+          accum4 <= accum4 + (($signed(input_value) * $signed(douta_4)));
+          accum5 <= accum5 + (($signed(input_value) * $signed(douta_5)));
+          accum6 <= accum6 + (($signed(input_value) * $signed(douta_6)));
+          accum7 <= accum7 + (($signed(input_value) * $signed(douta_7)));
+          accum8 <= accum8 + (($signed(input_value) * $signed(douta_8)));
+          accum9 <= accum9 + (($signed(input_value) * $signed(douta_9)));
+          accum10 <= accum10 + (($signed(input_value) * $signed(douta_10)));
 
           count <= count + 1;
           state <= WAIT;
@@ -218,29 +218,29 @@ blk_mem_gen_100 BRAM_11 (
 
         COMPUTE: begin
           case (bias_count)
-            1: C1 <= ($signed(accum1) + $signed(douta_b1));
-            2: C2 <= ($signed(accum2) + $signed(douta_b1));
-            3: C3 <= ($signed(accum3) + $signed(douta_b1));
-            4: C4 <= ($signed(accum4) + $signed(douta_b1));
-            5: C5 <= ($signed(accum5) + $signed(douta_b1));
-            6: C6 <= ($signed(accum6) + $signed(douta_b1));
-            7: C7 <= ($signed(accum7) + $signed(douta_b1));
-            8: C8 <= ($signed(accum8) + $signed(douta_b1));
-            9: C9 <= ($signed(accum9) + $signed(douta_b1));
-            10: C10 <= ($signed(accum10) + $signed(douta_b1));
+            1: c1_q30 <= $signed(accum1) + ($signed(douta_b1) <<< 15);
+            2: c2_q30 <= $signed(accum2) + ($signed(douta_b1) <<< 15);
+            3: c3_q30 <= $signed(accum3) + ($signed(douta_b1) <<< 15);
+            4: c4_q30 <= $signed(accum4) + ($signed(douta_b1) <<< 15);
+            5: c5_q30 <= $signed(accum5) + ($signed(douta_b1) <<< 15);
+            6: c6_q30 <= $signed(accum6) + ($signed(douta_b1) <<< 15);
+            7: c7_q30 <= $signed(accum7) + ($signed(douta_b1) <<< 15);
+            8: c8_q30 <= $signed(accum8) + ($signed(douta_b1) <<< 15);
+            9: c9_q30 <= $signed(accum9) + ($signed(douta_b1) <<< 15);
+            10: c10_q30 <= $signed(accum10) + ($signed(douta_b1) <<< 15);
           endcase
 
           if (bias_count == 11) begin
-            C1 <= (C1[31]) ? 32'd0 : C1;
-            C2 <= (C2[31]) ? 32'd0 : C2;
-            C3 <= (C3[31]) ? 32'd0 : C3;
-            C4 <= (C4[31]) ? 32'd0 : C4;
-            C5 <= (C5[31]) ? 32'd0 : C5;
-            C6 <= (C6[31]) ? 32'd0 : C6;
-            C7 <= (C7[31]) ? 32'd0 : C7;
-            C8 <= (C8[31]) ? 32'd0 : C8;
-            C9 <= (C9[31]) ? 32'd0 : C9;
-            C10 <= (C10[31]) ? 32'd0 : C10;
+            C1  <= (c1_q30 < 0)  ? 16'sd0 : ((c1_q30 + 32'sd16384) >>> 15);
+            C2  <= (c2_q30 < 0)  ? 16'sd0 : ((c2_q30 + 32'sd16384) >>> 15);
+            C3  <= (c3_q30 < 0)  ? 16'sd0 : ((c3_q30 + 32'sd16384) >>> 15);
+            C4  <= (c4_q30 < 0)  ? 16'sd0 : ((c4_q30 + 32'sd16384) >>> 15);
+            C5  <= (c5_q30 < 0)  ? 16'sd0 : ((c5_q30 + 32'sd16384) >>> 15);
+            C6  <= (c6_q30 < 0)  ? 16'sd0 : ((c6_q30 + 32'sd16384) >>> 15);
+            C7  <= (c7_q30 < 0)  ? 16'sd0 : ((c7_q30 + 32'sd16384) >>> 15);
+            C8  <= (c8_q30 < 0)  ? 16'sd0 : ((c8_q30 + 32'sd16384) >>> 15);
+            C9  <= (c9_q30 < 0)  ? 16'sd0 : ((c9_q30 + 32'sd16384) >>> 15);
+            C10 <= (c10_q30 < 0) ? 16'sd0 : ((c10_q30 + 32'sd16384) >>> 15);
             ena_b1 <= 0;
             done <= 1;
             state <= IDLE;
