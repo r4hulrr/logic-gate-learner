@@ -4,7 +4,7 @@ module z2 (
     input wire clk,
     input wire reset,
     input wire start,
-    input wire signed [15:0] C1_in, C2_in, C3_in, C4_in, C5_in, C6_in, C7_in, C8_in, C9_in, C10_in,
+    input wire [31:0] C1_in, C2_in, C3_in, C4_in, C5_in, C6_in, C7_in, C8_in, C9_in, C10_in,
     output reg done,
     output reg signed [63:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10
 );
@@ -30,7 +30,7 @@ module z2 (
   reg [4:0] bias_count;
 
   // input buffer
-  reg signed [15:0] input_value;
+  reg signed [31:0] input_value;
   // BRAM Instances
   
   blk_mem_gen_00 BRAM_1(
@@ -178,17 +178,16 @@ blk_mem_gen_100 BRAM_11 (
           addra_7 <= addra_7 + 1; addra_8 <= addra_8 + 1; addra_9 <= addra_9 + 1;
           addra_10 <= addra_10 + 1;
 
-          accum1 <= accum1 + (($signed(input_value) * $signed(douta_1)));
-          accum2 <= accum2 + (($signed(input_value) * $signed(douta_2)));
-          accum3 <= accum3 + (($signed(input_value) * $signed(douta_3)));
-          accum4 <= accum4 + (($signed(input_value) * $signed(douta_4)));
-          accum5 <= accum5 + (($signed(input_value) * $signed(douta_5)));
-          accum6 <= accum6 + (($signed(input_value) * $signed(douta_6)));
-          accum7 <= accum7 + (($signed(input_value) * $signed(douta_7)));
-          accum8 <= accum8 + (($signed(input_value) * $signed(douta_8)));
-          accum9 <= accum9 + (($signed(input_value) * $signed(douta_9)));
-          accum10 <= accum10 + (($signed(input_value) * $signed(douta_10)));
-
+            accum1  <= accum1  + ($signed(input_value) * $signed(douta_1));
+            accum2  <= accum2  + ($signed(input_value) * $signed(douta_2));
+            accum3  <= accum3  + ($signed(input_value) * $signed(douta_3));
+            accum4  <= accum4  + ($signed(input_value) * $signed(douta_4));
+            accum5  <= accum5  + ($signed(input_value) * $signed(douta_5));
+            accum6  <= accum6  + ($signed(input_value) * $signed(douta_6));
+            accum7  <= accum7  + ($signed(input_value) * $signed(douta_7));
+            accum8  <= accum8  + ($signed(input_value) * $signed(douta_8));
+            accum9  <= accum9  + ($signed(input_value) * $signed(douta_9));
+            accum10 <= accum10 + ($signed(input_value) * $signed(douta_10));
           count <= count + 1;
           state <= WAIT;
         end

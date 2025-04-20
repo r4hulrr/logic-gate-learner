@@ -16,7 +16,7 @@ module top(
     wire done_z1, done_z2;
 
     // Intermediate outputs from z1
-    wire signed [15:0] z1_C1, z1_C2, z1_C3, z1_C4, z1_C5, z1_C6, z1_C7, z1_C8, z1_C9, z1_C10;
+    wire [31:0] z1_C1, z1_C2, z1_C3, z1_C4, z1_C5, z1_C6, z1_C7, z1_C8, z1_C9, z1_C10;
 
     // Final outputs from z2
     wire signed [63:0] z2_C1, z2_C2, z2_C3, z2_C4, z2_C5, z2_C6, z2_C7, z2_C8, z2_C9, z2_C10;

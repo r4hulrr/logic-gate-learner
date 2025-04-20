@@ -5,7 +5,7 @@ module z1 (
     input wire reset,
     input wire start,
     output reg done,
-    output reg signed [15:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10 
+    output reg [31:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10 
 );
 
   // FSM States
