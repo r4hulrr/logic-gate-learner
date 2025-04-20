@@ -23,7 +23,10 @@ module top(
 
     // Control signals
     reg start_z1, start_z2;
-
+    
+    // Final output register
+    reg signed [63:0] max_val;
+    
     // z1 Layer
     z1 layer1(
         .clk(clk), .reset(reset), .start(start_z1), .done(done_z1),
@@ -69,17 +72,44 @@ module top(
                     start_z2 <= 0;
                     if (done_z2) begin
                         // Argmax over z2 output
+                        max_val = z2_C1;
                         argmax_index = 4'd0;
-                        if (z2_C2 > z2_C1) argmax_index = 4'd1;
-                        if (z2_C3 > z2_C2) argmax_index = 4'd2;
-                        if (z2_C4 > z2_C3) argmax_index = 4'd3;
-                        if (z2_C5 > z2_C4) argmax_index = 4'd4;
-                        if (z2_C6 > z2_C5) argmax_index = 4'd5;
-                        if (z2_C7 > z2_C6) argmax_index = 4'd6;
-                        if (z2_C8 > z2_C7) argmax_index = 4'd7;
-                        if (z2_C9 > z2_C8) argmax_index = 4'd8;
-                        if (z2_C10 > z2_C9) argmax_index = 4'd9;
-
+                        if (z2_C2 > max_val) begin
+                            max_val = z2_C2;
+                            argmax_index = 4'd1;
+                        end
+                        if (z2_C3 > max_val) begin
+                            max_val = z2_C3;
+                            argmax_index = 4'd2;
+                        end
+                        if (z2_C4 > max_val) begin
+                            max_val = z2_C4;
+                            argmax_index = 4'd3;
+                        end
+                        if (z2_C5 > max_val) begin
+                            max_val = z2_C5;
+                            argmax_index = 4'd4;
+                        end
+                        if (z2_C6 > max_val) begin
+                            max_val = z2_C6;
+                            argmax_index = 4'd5;
+                        end
+                        if (z2_C7 > max_val) begin
+                            max_val = z2_C7;
+                            argmax_index = 4'd6;
+                        end
+                        if (z2_C8 > max_val) begin
+                            max_val = z2_C8;
+                            argmax_index = 4'd7;
+                        end
+                        if (z2_C9 > max_val) begin
+                            max_val = z2_C9;
+                            argmax_index = 4'd8;
+                        end
+                        if (z2_C10 > max_val) begin
+                            max_val = z2_C10;
+                            argmax_index = 4'd9;
+                        end
                         done <= 1;
                         state <= IDLE;
                     end
