@@ -10,28 +10,45 @@ This project implements a fully custom 2-layer neural network from scratch for M
 
 ## Architecture
 
-### Python NN Structure
-- **Input:** 784 nodes (28x28 MNIST image)
-- **Hidden Layer 1:** 10 nodes
-- **Hidden Layer 2:** 10 nodes
-- **Output Layer:** 10 nodes (digits 0–9)
-- **Activation:** ReLU 
-- **Weight Shapes:**  
-  - `W1`: 784 × 10  
-  - `W2`: 10 × 10  
-  - `W3`: 10 × 10  
+- **Input Layer:** 784 neurons (28x28 pixel grayscale image)
+- **Hidden Layer:** 10 neurons with ReLU activation
+- **Output Layer:** 10 neurons with ReLU activation
+- **Activation Function:** ReLU (Rectified Linear Unit)
+- **Data Format:** Fixed-point Q1.15 for weights and activations
 
-### Verilog Modules
-- Single-port **BRAM wrappers**
-- Pipelined **Multiply-Accumulate (MAC)** datapaths
-- Finite State Machines (**FSMs**) for control logic
-- Output stage with **ReLU activation**
+## Implementation Details
+
+- **Verilog Modules:**
+  - `z1.v`: Implements the first layer matrix multiplication and bias addition.
+  - `z2.v`: Implements the second layer matrix multiplication and bias addition.
+  - `top.v`: Top-level module orchestrating the data flow and control signals between layers.
+- **Fixed-Point Arithmetic:**
+  - Matrix multiplications are performed in Q2.30 format.
+  - Biases are added after left-shifting Q1.15 values by 15 bits to match Q2.30 format.
+  - ReLU activation is applied by zeroing out negative values.
+- **Argmax Logic:**
+  - Implemented to determine the index of the maximum value in the output layer.
+  - Ensures correct digit classification by comparing all output neurons.
+- **Synthesis:**
+  - The design has been synthesized using Xilinx Vivado.
+  - No external constraints are required as there are no physical I/O dependencies.
 
 ## Current Status
-DONE - Python neural network working and tested  
-DONE - Q1.15 weights & biases exported via `.coe` files  
-DONE - Basic 1xN × Nx10 inference layer built in Verilog  
-ONGOING - Pipelining and full multi-layer system **in progress**  
-ONGOING - UART-based data input planned
 
+- [x] Verilog modules for both layers implemented
+- [x] Fixed-point arithmetic operations verified
+- [x] Argmax logic corrected and tested
+- [x] Design successfully synthesized in Vivado
+- [ ] Implementation on physical FPGA board pending
+- [ ] Integration with input data pipeline in progress
 
+## Future Work
+
+- Implement input data pipeline to feed test images into the network
+- Deploy the design on a physical FPGA board for real-time digit recognition
+- Optimize resource utilization and timing performance
+- Extend the network to support more complex datasets
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
