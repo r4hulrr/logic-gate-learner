@@ -3,9 +3,7 @@
 module top(
     input wire clk,
     input wire reset,
-    input wire start,
     input wire rx,
-    output reg done,
     output wire [3:0] leds
 );
 
@@ -104,12 +102,10 @@ blk_mem_gen_input BRAM_INPUT (
             state <= IDLE;
             start_z1 <= 0;
             start_z2 <= 0;
-            done <= 0;
             argmax_index <= 0;
         end else begin
             case (state)
                 IDLE: begin
-                    done <= 0;
                     if (inference_start) begin
                         argmax_index <= 0;
                         start_z1 <= 1;
@@ -165,7 +161,6 @@ blk_mem_gen_input BRAM_INPUT (
                             max_val = z2_C10;
                             argmax_index = 4'd9;
                         end
-                        done <= 1;
                         state <= IDLE;
                     end
                 end
