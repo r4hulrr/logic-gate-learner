@@ -3,7 +3,7 @@
 ## ====================================================================
 set_property PACKAGE_PIN E3 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports clk]
-create_clock -name sys_clk -period 10.000 -waveform {0 5} [get_ports clk]
+create_clock -name sys_clk -period 40.000 -waveform {0 20} [get_ports clk]
 
 ## ====================================================================
 ## Reset (push button - BTN0)
