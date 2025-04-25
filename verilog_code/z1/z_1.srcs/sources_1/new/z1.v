@@ -4,6 +4,9 @@ module z1 (
     input wire clk,
     input wire reset,
     input wire start,
+    input wire signed [15:0] douta_i,
+    output reg ena_i,
+    output reg [9:0] addra_i,
     output reg done,
     output reg [31:0] C1, C2, C3, C4, C5, C6, C7, C8, C9, C10 
 );
@@ -13,9 +16,9 @@ module z1 (
   reg [1:0] state;
   
   // BRAM interface signals for input and weights
-  reg ena_i, ena_1, ena_2, ena_3, ena_4, ena_5, ena_6, ena_7, ena_8, ena_9, ena_10;
-  reg [9 : 0] addra_i, addra_1, addra_2, addra_3, addra_4, addra_5, addra_6, addra_7, addra_8, addra_9, addra_10;
-  wire signed [15 : 0] douta_i, douta_1, douta_2, douta_3, douta_4, douta_5, douta_6, douta_7, douta_8, douta_9, douta_10;
+  reg ena_1, ena_2, ena_3, ena_4, ena_5, ena_6, ena_7, ena_8, ena_9, ena_10;
+  reg [9 : 0] addra_1, addra_2, addra_3, addra_4, addra_5, addra_6, addra_7, addra_8, addra_9, addra_10;
+  wire signed [15 : 0] douta_1, douta_2, douta_3, douta_4, douta_5, douta_6, douta_7, douta_8, douta_9, douta_10;
   
   // BRAM interface signals for biases 
   reg ena_b1;
@@ -35,15 +38,6 @@ module z1 (
   
   // BRAM Instances
   
-blk_mem_gen_input BRAM_INPUT (
-  .clka(clk),    // input wire clka
-  .ena(ena_i),      // input wire ena
-  .wea(1'b0),      // input wire [0 : 0] wea
-  .addra(addra_i),  // input wire [9 : 0] addra
-  .dina(18'b0),    // input wire [15 : 0] dina
-  .douta(douta_i)  // output wire [15 : 0] douta
-);
-
   blk_mem_gen_0 BRAM_1(
   .clka(clk),    // input wire clka
   .ena(ena_1),      // input wire ena

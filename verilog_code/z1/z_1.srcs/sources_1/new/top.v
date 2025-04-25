@@ -8,6 +8,21 @@ module top(
     output reg [3:0] argmax_index
 );
 
+// BRAM INPUT signals (Port A)
+wire signed [15:0] douta_i;
+wire [9:0] addra_i;
+wire ena_i;
+
+// BRAM INSTANTIATION 
+blk_mem_gen_input BRAM_INPUT (
+  .clka(clk),    // input wire clka
+  .ena(ena_i),      // input wire ena
+  .wea(1'b0),      // input wire [0 : 0] wea
+  .addra(addra_i),  // input wire [9 : 0] addra
+  .dina(18'b0),    // input wire [15 : 0] dina
+  .douta(douta_i)  // output wire [15 : 0] douta
+);
+
     // State encoding
     parameter IDLE = 2'b00, RUN_Z1 = 2'b01, RUN_Z2 = 2'b10;
     reg [1:0] state;
@@ -29,7 +44,8 @@ module top(
     
     // z1 Layer
     z1 layer1(
-        .clk(clk), .reset(reset), .start(start_z1), .done(done_z1),
+        .clk(clk), .reset(reset), .start(start_z1),.douta_i(douta_i),
+        .ena_i(ena_i), .addra_i(addra_i), .done(done_z1),
         .C1(z1_C1), .C2(z1_C2), .C3(z1_C3), .C4(z1_C4), .C5(z1_C5),
         .C6(z1_C6), .C7(z1_C7), .C8(z1_C8), .C9(z1_C9), .C10(z1_C10)
     );
