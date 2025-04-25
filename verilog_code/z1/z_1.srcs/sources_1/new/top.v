@@ -4,23 +4,60 @@ module top(
     input wire clk,
     input wire reset,
     input wire start,
+    input wire rx,
     output reg done,
     output reg [3:0] argmax_index
 );
 
-// BRAM INPUT signals (Port A)
+// UART and BRAM input signals (Port A)
+wire [7:0] uart_rx_data;
+wire uart_data_valid;
+
+wire signed [15:0] bram_din;
+wire [9:0]  bram_addr;
+wire bram_we;
+wire inference_start;
+
+
+// BRAM INPUT signals (Port B)
 wire signed [15:0] douta_i;
 wire [9:0] addra_i;
 wire ena_i;
 
+// UART INSTANTIATION
+uart_rx uart_rx_inst (
+    .clk(clk),
+    .rst(reset),
+    .rx(rx),
+    .data_out(uart_rx_data),
+    .data_valid(uart_data_valid)
+);
+
+uart_loader uart_loader_inst (
+    .clk(clk),
+    .rst(reset),
+    .uart_rx_data(uart_rx_data),
+    .uart_data_valid(uart_data_valid),
+    .bram_din(bram_din),
+    .bram_addr(bram_addr),
+    .bram_we(bram_we),
+    .inference_start(inference_start)
+);
+
 // BRAM INSTANTIATION 
 blk_mem_gen_input BRAM_INPUT (
-  .clka(clk),    // input wire clka
-  .ena(ena_i),      // input wire ena
-  .wea(1'b0),      // input wire [0 : 0] wea
-  .addra(addra_i),  // input wire [9 : 0] addra
-  .dina(18'b0),    // input wire [15 : 0] dina
-  .douta(douta_i)  // output wire [15 : 0] douta
+    // Port A - for UART writes
+    .clka(clk),
+    .ena(bram_we),             // enable write when active
+    .wea(bram_we),
+    .addra(bram_addr),
+    .dina(bram_din),
+    
+    // Port B - for z1 reads
+    .clkb(clk),
+    .enb(ena_i),
+    .addrb(addra_i),
+    .doutb(douta_i)            
 );
 
     // State encoding
@@ -72,7 +109,7 @@ blk_mem_gen_input BRAM_INPUT (
                 IDLE: begin
                     done <= 0;
                     argmax_index <= 0;
-                    if (start) begin
+                    if (inference_start) begin
                         start_z1 <= 1;
                         state <= RUN_Z1;
                     end
