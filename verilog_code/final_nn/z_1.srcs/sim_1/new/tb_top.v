@@ -2,48 +2,46 @@
 
 module tb_top;
 
-  reg clk;
-  reg reset;
-  reg start;
-  wire done;
-  wire [17:0] C1;
+  reg clk = 0;
+  reg reset = 1;
+  reg start = 0;
+  reg rx = 1;
 
-  // Instantiate the top module
-  z1 uut (
+  wire done;
+  wire [3:0] argmax_index;
+
+  // Instantiate DUT
+  top uut (
     .clk(clk),
     .reset(reset),
     .start(start),
+    .rx(rx),
     .done(done),
-    .C1(C1)
+    .argmax_index(argmax_index)
   );
 
-  // Clock generation
-  initial begin
-    clk = 0;
-    forever #5 clk = ~clk; // 100 MHz clock
-  end
+  // Clock generation (100MHz)
+  always #5 clk = ~clk;
 
+  // Simulate inference flow
   initial begin
-    // Init signals
-    reset = 1;
-    start = 0;
+    $display("Starting simulation...");
     #20;
-
     reset = 0;
     #20;
 
-    // Start signal
-    start = 1;
-    #10;
-    start = 0;
+    // Simulate preloaded UART -> BRAM
+    force uut.inference_start = 1'b1;
+    force uut.bram_we = 1'b0;
 
-    // Wait for completion
-    wait (done);
-    #10;
+    // Set BRAM read addresses (simulate loaded BRAM)
+    force uut.BRAM_INPUT.doutb = 16'sh4000; // simulate 0.5 Q1.15 across BRAM
+    force uut.BRAM_INPUT.addrb = 10'd0;
 
-    $display("C1 = %d", C1);
+    // Run FSM for 5 us
+    #50000;
 
-    #50;
+    $display("Done: %b, Prediction: %d", done, argmax_index);
     $finish;
   end
 
