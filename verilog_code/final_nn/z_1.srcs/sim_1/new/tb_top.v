@@ -10,6 +10,9 @@ module tb_top;
   wire done;
   wire [3:0] argmax_index;
 
+  integer i;
+  reg signed [15:0] preload_data [0:783];
+
   // Instantiate DUT
   top uut (
     .clk(clk),
@@ -23,24 +26,30 @@ module tb_top;
   // Clock generation (100MHz)
   always #5 clk = ~clk;
 
-  // Simulate inference flow
   initial begin
     $display("Starting simulation...");
+    $readmemh("input.mem", preload_data);  // preload digit
+
     #20;
     reset = 0;
     #20;
 
-    // Simulate preloaded UART -> BRAM
+    // Simulate BRAM loading via Port A (UART-style)
+    for (i = 0; i < 784; i = i + 1) begin
+      force uut.bram_addr = i;
+      force uut.bram_din = preload_data[i];
+      force uut.bram_we = 1'b1;
+      #10;
+      force uut.bram_we = 1'b0;
+      #10;
+    end
+
+    // Trigger inference
     force uut.inference_start = 1'b1;
-    force uut.bram_we = 1'b0;
+    #20;
+    force uut.inference_start = 1'b0;
 
-    // Set BRAM read addresses (simulate loaded BRAM)
-    force uut.BRAM_INPUT.doutb = 16'sh4000; // simulate 0.5 Q1.15 across BRAM
-    force uut.BRAM_INPUT.addrb = 10'd0;
-
-    // Run FSM for 5 us
     #50000;
-
     $display("Done: %b, Prediction: %d", done, argmax_index);
     $finish;
   end

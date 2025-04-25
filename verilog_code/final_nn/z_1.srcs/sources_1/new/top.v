@@ -6,7 +6,7 @@ module top(
     input wire start,
     input wire rx,
     output reg done,
-    output reg [3:0] argmax_index
+    output wire [3:0] leds
 );
 
 // UART and BRAM input signals (Port A)
@@ -18,7 +18,9 @@ wire [9:0]  bram_addr;
 wire bram_we;
 wire inference_start;
 
-
+// Result displayed
+reg [3:0] argmax_index;
+assign leds = argmax_index;
 // BRAM INPUT signals (Port B)
 wire signed [15:0] douta_i;
 wire [9:0] addra_i;
@@ -108,8 +110,8 @@ blk_mem_gen_input BRAM_INPUT (
             case (state)
                 IDLE: begin
                     done <= 0;
-                    argmax_index <= 0;
                     if (inference_start) begin
+                        argmax_index <= 0;
                         start_z1 <= 1;
                         state <= RUN_Z1;
                     end
