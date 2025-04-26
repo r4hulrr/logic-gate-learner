@@ -1,0 +1,723 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Sat Apr 26 22:18:08 2025
+# Process ID: 19128
+# Current directory: C:/Vitis_Vivado/z_1/z_1.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: C:/Vitis_Vivado/z_1/z_1.runs/synth_1/top.vds
+# Journal file: C:/Vitis_Vivado/z_1/z_1.runs/synth_1\vivado.jou
+# Running On: DESKTOP-M4HKDVQ, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 4, Host memory: 8381 MB
+#-----------------------------------------------------------
+source top.tcl -notrace
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 1281.621 ; gain = 8.352
+Command: read_checkpoint -auto_incremental -incremental C:/Vitis_Vivado/z_1/z_1.srcs/utils_1/imports/synth_1/top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Vitis_Vivado/z_1/z_1.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 4000
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1281.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/uart_rx.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (0#1) [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/uart_rx.v:1]
+INFO: [Synth 8-6157] synthesizing module 'uart_loader' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/uart_loader.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'uart_loader' (0#1) [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/uart_loader.v:1]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_input' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_input_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_input' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_input_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'z1' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:3]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_2' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_2' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_3' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_3' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_3_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_4' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_4_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_4' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_4_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_5' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_5_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_5' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_5_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_6' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_6_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_6' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_6_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_7' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_7_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_7' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_7_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_8' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_8_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_8' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_8_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_9' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_9_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_9' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_9_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_10' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_10_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_10' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_10_stub.v:5]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:320]
+INFO: [Synth 8-6155] done synthesizing module 'z1' (0#1) [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:3]
+INFO: [Synth 8-6157] synthesizing module 'z2' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:3]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_00' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_00_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_00' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_00_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_00' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:40]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_11' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_11_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_11' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_11_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_11' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:49]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_22' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_22_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_22' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_22_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_22' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:58]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_33' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_33_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_33' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_33_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_33' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:67]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_44' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_44_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_44' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_44_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_44' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:76]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_55' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_55_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_55' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_55_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_55' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:85]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_66' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_66_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_66' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_66_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_66' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:94]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_77' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_77_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_77' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_77_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_77' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:103]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_88' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_88_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_88' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_88_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_88' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:112]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_99' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_99_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_99' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_99_stub.v:5]
+WARNING: [Synth 8-689] width (10) of port connection 'addra' does not match port width (4) of module 'blk_mem_gen_99' [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:121]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_100' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_100_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_100' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/blk_mem_gen_100_stub.v:5]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:203]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:219]
+INFO: [Synth 8-6155] done synthesizing module 'z2' (0#1) [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:107]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:172]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/ila_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (0#1) [C:/Vitis_Vivado/z_1/z_1.runs/synth_1/.Xil/Vivado-19128-DESKTOP-M4HKDVQ/realtime/ila_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:3]
+WARNING: [Synth 8-7137] Register rx_shift_reg in module uart_rx has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/uart_rx.v:40]
+WARNING: [Synth 8-7137] Register byte_latch_reg in module uart_loader has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/uart_loader.v:29]
+WARNING: [Synth 8-7137] Register bram_din_reg in module uart_loader has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/uart_loader.v:32]
+WARNING: [Synth 8-7137] Register bram_addr_reg in module uart_loader has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/uart_loader.v:33]
+WARNING: [Synth 8-7137] Register input_value_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:237]
+WARNING: [Synth 8-7137] Register c1_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:321]
+WARNING: [Synth 8-7137] Register c2_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:322]
+WARNING: [Synth 8-7137] Register c3_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:323]
+WARNING: [Synth 8-7137] Register c4_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:324]
+WARNING: [Synth 8-7137] Register c5_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:325]
+WARNING: [Synth 8-7137] Register c6_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:326]
+WARNING: [Synth 8-7137] Register c7_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:327]
+WARNING: [Synth 8-7137] Register c8_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:328]
+WARNING: [Synth 8-7137] Register c9_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:329]
+WARNING: [Synth 8-7137] Register c10_q30_reg in module z1 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z1.v:330]
+WARNING: [Synth 8-7137] Register input_value_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:167]
+WARNING: [Synth 8-7137] Register c1_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:220]
+WARNING: [Synth 8-7137] Register c2_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:221]
+WARNING: [Synth 8-7137] Register c3_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:222]
+WARNING: [Synth 8-7137] Register c4_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:223]
+WARNING: [Synth 8-7137] Register c5_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:224]
+WARNING: [Synth 8-7137] Register c6_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:225]
+WARNING: [Synth 8-7137] Register c7_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:226]
+WARNING: [Synth 8-7137] Register c8_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:227]
+WARNING: [Synth 8-7137] Register c9_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:228]
+WARNING: [Synth 8-7137] Register c10_q30_reg in module z2 has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/z2.v:229]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'uart_rx_inst'. This will prevent further optimization [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:28]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_ila'. This will prevent further optimization [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:172]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'uart_loader_inst'. This will prevent further optimization [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:36]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'BRAM_INPUT'. This will prevent further optimization [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:48]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'layer1'. This will prevent further optimization [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:83]
+WARNING: [Synth 8-6014] Unused sequential element max_val_reg was removed.  [C:/Vitis_Vivado/z_1/z_1.srcs/sources_1/new/top.v:126]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1323.512 ; gain = 41.891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1323.512 ; gain = 41.891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1323.512 ; gain = 41.891
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.132 . Memory (MB): peak = 1323.512 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'layer1/BRAM_1'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'layer1/BRAM_1'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1/blk_mem_gen_1_in_context.xdc] for cell 'layer1/BRAM_2'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1/blk_mem_gen_1_in_context.xdc] for cell 'layer1/BRAM_2'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2/blk_mem_gen_2_in_context.xdc] for cell 'layer1/BRAM_3'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2/blk_mem_gen_2_in_context.xdc] for cell 'layer1/BRAM_3'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'layer1/BRAM_4'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'layer1/BRAM_4'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4/blk_mem_gen_4_in_context.xdc] for cell 'layer1/BRAM_5'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4/blk_mem_gen_4_in_context.xdc] for cell 'layer1/BRAM_5'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_5/blk_mem_gen_5/blk_mem_gen_5_in_context.xdc] for cell 'layer1/BRAM_6'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_5/blk_mem_gen_5/blk_mem_gen_5_in_context.xdc] for cell 'layer1/BRAM_6'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_6/blk_mem_gen_6/blk_mem_gen_6_in_context.xdc] for cell 'layer1/BRAM_7'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_6/blk_mem_gen_6/blk_mem_gen_6_in_context.xdc] for cell 'layer1/BRAM_7'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_7/blk_mem_gen_7/blk_mem_gen_7_in_context.xdc] for cell 'layer1/BRAM_8'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_7/blk_mem_gen_7/blk_mem_gen_7_in_context.xdc] for cell 'layer1/BRAM_8'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_8/blk_mem_gen_8/blk_mem_gen_8_in_context.xdc] for cell 'layer1/BRAM_9'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_8/blk_mem_gen_8/blk_mem_gen_8_in_context.xdc] for cell 'layer1/BRAM_9'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_9/blk_mem_gen_9/blk_mem_gen_9_in_context.xdc] for cell 'layer1/BRAM_10'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_9/blk_mem_gen_9/blk_mem_gen_9_in_context.xdc] for cell 'layer1/BRAM_10'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_10/blk_mem_gen_10/blk_mem_gen_10_in_context.xdc] for cell 'layer1/BRAM_11'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_10/blk_mem_gen_10/blk_mem_gen_10_in_context.xdc] for cell 'layer1/BRAM_11'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_00/blk_mem_gen_00/blk_mem_gen_00_in_context.xdc] for cell 'layer2/BRAM_1'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_00/blk_mem_gen_00/blk_mem_gen_00_in_context.xdc] for cell 'layer2/BRAM_1'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_11/blk_mem_gen_11/blk_mem_gen_11_in_context.xdc] for cell 'layer2/BRAM_2'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_11/blk_mem_gen_11/blk_mem_gen_11_in_context.xdc] for cell 'layer2/BRAM_2'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_33/blk_mem_gen_33/blk_mem_gen_33_in_context.xdc] for cell 'layer2/BRAM_4'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_33/blk_mem_gen_33/blk_mem_gen_33_in_context.xdc] for cell 'layer2/BRAM_4'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_44/blk_mem_gen_44/blk_mem_gen_44_in_context.xdc] for cell 'layer2/BRAM_5'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_44/blk_mem_gen_44/blk_mem_gen_44_in_context.xdc] for cell 'layer2/BRAM_5'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_55/blk_mem_gen_55/blk_mem_gen_55_in_context.xdc] for cell 'layer2/BRAM_6'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_55/blk_mem_gen_55/blk_mem_gen_55_in_context.xdc] for cell 'layer2/BRAM_6'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_66/blk_mem_gen_66/blk_mem_gen_66_in_context.xdc] for cell 'layer2/BRAM_7'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_66/blk_mem_gen_66/blk_mem_gen_66_in_context.xdc] for cell 'layer2/BRAM_7'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_77/blk_mem_gen_77/blk_mem_gen_77_in_context.xdc] for cell 'layer2/BRAM_8'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_77/blk_mem_gen_77/blk_mem_gen_77_in_context.xdc] for cell 'layer2/BRAM_8'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_88/blk_mem_gen_88/blk_mem_gen_88_in_context.xdc] for cell 'layer2/BRAM_9'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_88/blk_mem_gen_88/blk_mem_gen_88_in_context.xdc] for cell 'layer2/BRAM_9'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_99/blk_mem_gen_99/blk_mem_gen_99_in_context.xdc] for cell 'layer2/BRAM_10'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_99/blk_mem_gen_99/blk_mem_gen_99_in_context.xdc] for cell 'layer2/BRAM_10'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_100/blk_mem_gen_100/blk_mem_gen_100_in_context.xdc] for cell 'layer2/BRAM_11'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_100/blk_mem_gen_100/blk_mem_gen_100_in_context.xdc] for cell 'layer2/BRAM_11'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_22/blk_mem_gen_22/blk_mem_gen_22_in_context.xdc] for cell 'layer2/BRAM_3'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_22/blk_mem_gen_22/blk_mem_gen_22_in_context.xdc] for cell 'layer2/BRAM_3'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_input/blk_mem_gen_input/blk_mem_gen_input_in_context.xdc] for cell 'BRAM_INPUT'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/blk_mem_gen_input/blk_mem_gen_input/blk_mem_gen_input_in_context.xdc] for cell 'BRAM_INPUT'
+Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'u_ila'
+Finished Parsing XDC File [c:/Vitis_Vivado/z_1/z_1.gen/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'u_ila'
+Parsing XDC File [C:/Vitis_Vivado/z_1/z_1.srcs/constrs_1/new/arty_a7_100t.xdc]
+Finished Parsing XDC File [C:/Vitis_Vivado/z_1/z_1.srcs/constrs_1/new/arty_a7_100t.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Vitis_Vivado/z_1/z_1.srcs/constrs_1/new/arty_a7_100t.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1411.363 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 1411.363 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1411.363 ; gain = 129.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1411.363 ; gain = 129.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_4. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_5. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_6. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_7. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_8. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_9. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_10. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer1/BRAM_11. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_4. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_5. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_6. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_7. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_8. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_9. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_10. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_11. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for layer2/BRAM_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for BRAM_INPUT. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u_ila. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1411.363 ; gain = 129.742
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'z1'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'z2'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'top'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+                   START |                               01 |                               01
+                    DATA |                               10 |                               10
+                    STOP |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+                    LOAD |                               01 |                               01
+                    WAIT |                               10 |                               10
+                 COMPUTE |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'z1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+                    LOAD |                               01 |                               01
+                    WAIT |                               10 |                               10
+                 COMPUTE |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'z2'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              001 |                               00
+                  RUN_Z1 |                              010 |                               01
+                  RUN_Z2 |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'top'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1411.363 ; gain = 129.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   64 Bit       Adders := 40    
+	   2 Input   10 Bit       Adders := 6     
+	   2 Input    5 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	               64 Bit    Registers := 50    
+	               32 Bit    Registers := 12    
+	               16 Bit    Registers := 1     
+	               10 Bit    Registers := 7     
+	                8 Bit    Registers := 3     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 12    
++---Multipliers : 
+	              16x32  Multipliers := 20    
++---Muxes : 
+	   4 Input   64 Bit        Muxes := 20    
+	   2 Input   64 Bit        Muxes := 21    
+	   2 Input   32 Bit        Muxes := 10    
+	   4 Input   32 Bit        Muxes := 11    
+	   2 Input   10 Bit        Muxes := 1     
+	   4 Input   10 Bit        Muxes := 3     
+	   4 Input    8 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 1     
+	   4 Input    5 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 3     
+	   3 Input    4 Bit        Muxes := 2     
+	   4 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 3     
+	   2 Input    2 Bit        Muxes := 6     
+	   3 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 34    
+	   4 Input    1 Bit        Muxes := 51    
+	  11 Input    1 Bit        Muxes := 21    
+	   3 Input    1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP accum11, operation Mode is: A*B.
+DSP Report: operator accum11 is absorbed into DSP accum11.
+DSP Report: operator accum11 is absorbed into DSP accum11.
+DSP Report: Generating DSP accum11, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum11 is absorbed into DSP accum11.
+DSP Report: operator accum11 is absorbed into DSP accum11.
+DSP Report: Generating DSP accum21, operation Mode is: A*B.
+DSP Report: operator accum21 is absorbed into DSP accum21.
+DSP Report: operator accum21 is absorbed into DSP accum21.
+DSP Report: Generating DSP accum21, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum21 is absorbed into DSP accum21.
+DSP Report: operator accum21 is absorbed into DSP accum21.
+DSP Report: Generating DSP accum31, operation Mode is: A*B.
+DSP Report: operator accum31 is absorbed into DSP accum31.
+DSP Report: operator accum31 is absorbed into DSP accum31.
+DSP Report: Generating DSP accum31, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum31 is absorbed into DSP accum31.
+DSP Report: operator accum31 is absorbed into DSP accum31.
+DSP Report: Generating DSP accum41, operation Mode is: A*B.
+DSP Report: operator accum41 is absorbed into DSP accum41.
+DSP Report: operator accum41 is absorbed into DSP accum41.
+DSP Report: Generating DSP accum41, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum41 is absorbed into DSP accum41.
+DSP Report: operator accum41 is absorbed into DSP accum41.
+DSP Report: Generating DSP accum51, operation Mode is: A*B.
+DSP Report: operator accum51 is absorbed into DSP accum51.
+DSP Report: operator accum51 is absorbed into DSP accum51.
+DSP Report: Generating DSP accum51, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum51 is absorbed into DSP accum51.
+DSP Report: operator accum51 is absorbed into DSP accum51.
+DSP Report: Generating DSP accum61, operation Mode is: A*B.
+DSP Report: operator accum61 is absorbed into DSP accum61.
+DSP Report: operator accum61 is absorbed into DSP accum61.
+DSP Report: Generating DSP accum61, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum61 is absorbed into DSP accum61.
+DSP Report: operator accum61 is absorbed into DSP accum61.
+DSP Report: Generating DSP accum71, operation Mode is: A*B.
+DSP Report: operator accum71 is absorbed into DSP accum71.
+DSP Report: operator accum71 is absorbed into DSP accum71.
+DSP Report: Generating DSP accum71, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum71 is absorbed into DSP accum71.
+DSP Report: operator accum71 is absorbed into DSP accum71.
+DSP Report: Generating DSP accum81, operation Mode is: A*B.
+DSP Report: operator accum81 is absorbed into DSP accum81.
+DSP Report: operator accum81 is absorbed into DSP accum81.
+DSP Report: Generating DSP accum81, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum81 is absorbed into DSP accum81.
+DSP Report: operator accum81 is absorbed into DSP accum81.
+DSP Report: Generating DSP accum91, operation Mode is: A*B.
+DSP Report: operator accum91 is absorbed into DSP accum91.
+DSP Report: operator accum91 is absorbed into DSP accum91.
+DSP Report: Generating DSP accum91, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum91 is absorbed into DSP accum91.
+DSP Report: operator accum91 is absorbed into DSP accum91.
+DSP Report: Generating DSP accum101, operation Mode is: A*B.
+DSP Report: operator accum101 is absorbed into DSP accum101.
+DSP Report: operator accum101 is absorbed into DSP accum101.
+DSP Report: Generating DSP accum101, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum101 is absorbed into DSP accum101.
+DSP Report: operator accum101 is absorbed into DSP accum101.
+DSP Report: Generating DSP accum11, operation Mode is: A*B.
+DSP Report: operator accum11 is absorbed into DSP accum11.
+DSP Report: operator accum11 is absorbed into DSP accum11.
+DSP Report: Generating DSP accum11, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum11 is absorbed into DSP accum11.
+DSP Report: operator accum11 is absorbed into DSP accum11.
+DSP Report: Generating DSP accum21, operation Mode is: A*B.
+DSP Report: operator accum21 is absorbed into DSP accum21.
+DSP Report: operator accum21 is absorbed into DSP accum21.
+DSP Report: Generating DSP accum21, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum21 is absorbed into DSP accum21.
+DSP Report: operator accum21 is absorbed into DSP accum21.
+DSP Report: Generating DSP accum31, operation Mode is: A*B.
+DSP Report: operator accum31 is absorbed into DSP accum31.
+DSP Report: operator accum31 is absorbed into DSP accum31.
+DSP Report: Generating DSP accum31, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum31 is absorbed into DSP accum31.
+DSP Report: operator accum31 is absorbed into DSP accum31.
+DSP Report: Generating DSP accum41, operation Mode is: A*B.
+DSP Report: operator accum41 is absorbed into DSP accum41.
+DSP Report: operator accum41 is absorbed into DSP accum41.
+DSP Report: Generating DSP accum41, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum41 is absorbed into DSP accum41.
+DSP Report: operator accum41 is absorbed into DSP accum41.
+DSP Report: Generating DSP accum51, operation Mode is: A*B.
+DSP Report: operator accum51 is absorbed into DSP accum51.
+DSP Report: operator accum51 is absorbed into DSP accum51.
+DSP Report: Generating DSP accum51, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum51 is absorbed into DSP accum51.
+DSP Report: operator accum51 is absorbed into DSP accum51.
+DSP Report: Generating DSP accum61, operation Mode is: A*B.
+DSP Report: operator accum61 is absorbed into DSP accum61.
+DSP Report: operator accum61 is absorbed into DSP accum61.
+DSP Report: Generating DSP accum61, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum61 is absorbed into DSP accum61.
+DSP Report: operator accum61 is absorbed into DSP accum61.
+DSP Report: Generating DSP accum71, operation Mode is: A*B.
+DSP Report: operator accum71 is absorbed into DSP accum71.
+DSP Report: operator accum71 is absorbed into DSP accum71.
+DSP Report: Generating DSP accum71, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum71 is absorbed into DSP accum71.
+DSP Report: operator accum71 is absorbed into DSP accum71.
+DSP Report: Generating DSP accum81, operation Mode is: A*B.
+DSP Report: operator accum81 is absorbed into DSP accum81.
+DSP Report: operator accum81 is absorbed into DSP accum81.
+DSP Report: Generating DSP accum81, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum81 is absorbed into DSP accum81.
+DSP Report: operator accum81 is absorbed into DSP accum81.
+DSP Report: Generating DSP accum91, operation Mode is: A*B.
+DSP Report: operator accum91 is absorbed into DSP accum91.
+DSP Report: operator accum91 is absorbed into DSP accum91.
+DSP Report: Generating DSP accum91, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum91 is absorbed into DSP accum91.
+DSP Report: operator accum91 is absorbed into DSP accum91.
+DSP Report: Generating DSP accum101, operation Mode is: A*B.
+DSP Report: operator accum101 is absorbed into DSP accum101.
+DSP Report: operator accum101 is absorbed into DSP accum101.
+DSP Report: Generating DSP accum101, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator accum101 is absorbed into DSP accum101.
+DSP Report: operator accum101 is absorbed into DSP accum101.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 1411.363 ; gain = 129.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:12 ; elapsed = 00:01:13 . Memory (MB): peak = 1411.363 ; gain = 129.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:27 ; elapsed = 00:01:29 . Memory (MB): peak = 1498.672 ; gain = 217.051
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:34 ; elapsed = 00:01:36 . Memory (MB): peak = 1501.832 ; gain = 220.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:42 ; elapsed = 00:01:44 . Memory (MB): peak = 1501.832 ; gain = 220.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:42 ; elapsed = 00:01:44 . Memory (MB): peak = 1501.832 ; gain = 220.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:45 ; elapsed = 00:01:47 . Memory (MB): peak = 1501.832 ; gain = 220.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:45 ; elapsed = 00:01:47 . Memory (MB): peak = 1501.832 ; gain = 220.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:46 ; elapsed = 00:01:48 . Memory (MB): peak = 1501.832 ; gain = 220.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:46 ; elapsed = 00:01:48 . Memory (MB): peak = 1501.832 ; gain = 220.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z1          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z1          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|z2          | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|z2          | PCIN>>17+A*B' | 30     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
++------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++------+------------------+----------+
+|      |BlackBox name     |Instances |
++------+------------------+----------+
+|1     |blk_mem_gen_0     |         1|
+|2     |blk_mem_gen_1     |         1|
+|3     |blk_mem_gen_2     |         1|
+|4     |blk_mem_gen_3     |         1|
+|5     |blk_mem_gen_4     |         1|
+|6     |blk_mem_gen_5     |         1|
+|7     |blk_mem_gen_6     |         1|
+|8     |blk_mem_gen_7     |         1|
+|9     |blk_mem_gen_8     |         1|
+|10    |blk_mem_gen_9     |         1|
+|11    |blk_mem_gen_10    |         1|
+|12    |blk_mem_gen_input |         1|
+|13    |ila_0             |         1|
+|14    |blk_mem_gen_00    |         1|
+|15    |blk_mem_gen_11    |         1|
+|16    |blk_mem_gen_22    |         1|
+|17    |blk_mem_gen_33    |         1|
+|18    |blk_mem_gen_44    |         1|
+|19    |blk_mem_gen_55    |         1|
+|20    |blk_mem_gen_66    |         1|
+|21    |blk_mem_gen_77    |         1|
+|22    |blk_mem_gen_88    |         1|
+|23    |blk_mem_gen_99    |         1|
+|24    |blk_mem_gen_100   |         1|
++------+------------------+----------+
+
+Report Cell Usage: 
++------+------------------+------+
+|      |Cell              |Count |
++------+------------------+------+
+|1     |blk_mem_gen       |    22|
+|23    |blk_mem_gen_input |     1|
+|24    |ila               |     1|
+|25    |BUFG              |     1|
+|26    |CARRY4            |   676|
+|27    |DSP48E1           |    40|
+|29    |LUT1              |    45|
+|30    |LUT2              |  4214|
+|31    |LUT3              |   422|
+|32    |LUT4              |   739|
+|33    |LUT5              |   257|
+|34    |LUT6              |   529|
+|35    |FDCE              |  2346|
+|36    |FDPE              |     3|
+|37    |FDRE              |  1012|
+|38    |IBUF              |     3|
+|39    |OBUF              |     4|
++------+------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:46 ; elapsed = 00:01:48 . Memory (MB): peak = 1501.832 ; gain = 220.211
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:28 ; elapsed = 00:01:44 . Memory (MB): peak = 1501.832 ; gain = 132.359
+Synthesis Optimization Complete : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 1501.832 ; gain = 220.211
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.120 . Memory (MB): peak = 1513.668 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 716 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1517.371 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 22d15d64
+INFO: [Common 17-83] Releasing license: Synthesis
+96 Infos, 39 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:57 ; elapsed = 00:02:01 . Memory (MB): peak = 1517.371 ; gain = 235.750
+INFO: [Common 17-1381] The checkpoint 'C:/Vitis_Vivado/z_1/z_1.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 26 22:20:30 2025...

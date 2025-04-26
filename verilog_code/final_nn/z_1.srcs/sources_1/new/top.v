@@ -168,4 +168,18 @@ blk_mem_gen_input BRAM_INPUT (
         end
     end
 
+// Logic Analyzer
+ila_0 u_ila (
+    .clk(clk),
+    .probe0(uart_data_valid),
+    .probe1(bram_addr),
+    .probe2(bram_we),
+    .probe3(start_z1),
+    .probe4(inference_start),
+    .probe5(argmax_index)
+);
+
+
+
+
 endmodule
