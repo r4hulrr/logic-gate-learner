@@ -1,24 +1,47 @@
 `timescale 1ns / 1ps
 
-module uart_rx_test_top (
-    input  wire clk,          // 100 MHz clock from FPGA
-    input  wire i_Rx_Serial,  // UART receive line
-    output wire [7:0] o_leds  // Connect to 8 onboard LEDs
+module uart_rx_top (
+    input  wire clk,          // 100 MHz clock input
+    input  wire [4:0] sw,     // Slide switches (sw[0] = reset)
+    input  wire uart_rxd,     // UART receive line
+    output wire [7:0] led     // 8 onboard LEDs
 );
 
-wire       w_Rx_DV;
-wire [7:0] w_Rx_Byte;
+// Parameters
+localparam CLK_FREQ = 100_000_000;
+localparam BAUD     = 115200;
 
-uart_rx #(.CLKS_PER_BIT(868))  // For 100MHz FPGA clock, 115200 baud: 100_000_000/115200 ? 868
-u_uart_rx (
-    .i_Clock(clk),
-    .i_Rx_Serial(i_Rx_Serial),
-    .o_Rx_DV(w_Rx_DV),
-    .o_Rx_Byte(w_Rx_Byte)
+// Internal wires
+wire [7:0] rx_data;
+wire       rx_valid;
+
+// LED register
+reg [7:0] led_reg;
+assign led = led_reg;
+
+// -------------------------------------------------------------------------
+// UART Receiver Instance
+uart_rx #(
+    .CLK_FREQ(CLK_FREQ),
+    .BAUD(BAUD)
+) u_uart_rx (
+    .clk(clk),
+    .rst(~sw[0]),       // Active HIGH reset to module
+    .rx(uart_rxd),
+    .data_out(rx_data),
+    .data_valid(rx_valid)
 );
 
-// Display the received byte on LEDs
-assign o_leds = w_Rx_Byte;
+// -------------------------------------------------------------------------
+// LED Display Logic
+always @(posedge clk) begin
+    if (~sw[0]) begin
+        led_reg <= 8'hAA;  // Some pattern during reset
+    end else if (rx_valid) begin
+        led_reg <= rx_data;
+    end
+end
 
 endmodule
+
 
