@@ -234,7 +234,8 @@ blk_mem_gen_10 BRAM_11 (
             C9 <= 0;
             C10 <= 0;
             
-            input_value <= douta_i;
+            // BRAM INPUT
+            addra_i <= addra_i + 1;
             // Enable BRAM reads
             ena_i <= 1;
             ena_1 <= 1;
@@ -252,8 +253,7 @@ blk_mem_gen_10 BRAM_11 (
         end
 
         LOAD: begin
-          // BRAM INPUT
-          addra_i <= addra_i + 1;
+          
           // BRAM 1
           addra_1 <= addra_1 + 1;
           // BRAM 2
@@ -276,16 +276,16 @@ blk_mem_gen_10 BRAM_11 (
           addra_10 <= addra_10 + 1;
           
           
-          accum1 <= accum1 + (($signed(input_value) * $signed(douta_1)));
-          accum2 <= accum2 + (($signed(input_value) * $signed(douta_2)));
-          accum3 <= accum3 + (($signed(input_value) * $signed(douta_3)));
-          accum4 <= accum4 + (($signed(input_value) * $signed(douta_4)));
-          accum5 <= accum5 + (($signed(input_value) * $signed(douta_5)));
-          accum6 <= accum6 + (($signed(input_value) * $signed(douta_6)));
-          accum7 <= accum7 + (($signed(input_value) * $signed(douta_7)));
-          accum8 <= accum8 + (($signed(input_value) * $signed(douta_8)));
-          accum9 <= accum9 + (($signed(input_value) * $signed(douta_9)));
-          accum10 <= accum10 + (($signed(input_value) * $signed(douta_10)));
+            accum1 <= accum1 + ($signed(douta_i) * $signed(douta_1));
+            accum2 <= accum2 + ($signed(douta_i) * $signed(douta_2));
+            accum3 <= accum3 + ($signed(douta_i) * $signed(douta_3));
+            accum4 <= accum4 + ($signed(douta_i) * $signed(douta_4));
+            accum5 <= accum5 + ($signed(douta_i) * $signed(douta_5));
+            accum6 <= accum6 + ($signed(douta_i) * $signed(douta_6));
+            accum7 <= accum7 + ($signed(douta_i) * $signed(douta_7));
+            accum8 <= accum8 + ($signed(douta_i) * $signed(douta_8));
+            accum9 <= accum9 + ($signed(douta_i) * $signed(douta_9));
+            accum10 <= accum10 + ($signed(douta_i) * $signed(douta_10));
 
             count <= count + 1;
             state <= WAIT;
@@ -311,7 +311,8 @@ blk_mem_gen_10 BRAM_11 (
                end
                state <= COMPUTE;   
             end else begin
-                input_value <= douta_i;
+                // BRAM INPUT
+                addra_i <= addra_i + 1;
                 state <= LOAD;
             end
         end
@@ -353,5 +354,14 @@ blk_mem_gen_10 BRAM_11 (
       endcase
     end
   end
+
+// Logic Analyzer
+ila_0 u_ila (
+    .clk(clk),
+    .probe0(start),
+    .probe1(input_value),
+    .probe2(accum1),
+    .probe3(douta_1)
+);
 
 endmodule

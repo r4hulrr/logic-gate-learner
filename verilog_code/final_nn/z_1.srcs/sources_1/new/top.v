@@ -64,7 +64,7 @@ blk_mem_gen_input BRAM_INPUT (
 );
 
     // State encoding
-    parameter IDLE = 2'b00, RUN_Z1 = 2'b01, RUN_Z2 = 2'b10;
+    parameter IDLE = 2'b00, RUN_Z1 = 2'b01, RUN_Z2 = 2'b10, WAIT_FOR_RESET = 2'b11;
     reg [1:0] state;
 
     // Done signals from layers
@@ -164,25 +164,16 @@ blk_mem_gen_input BRAM_INPUT (
                             max_val = z2_C10;
                             argmax_index = 4'd9;
                         end
-                        state <= IDLE;
+                        state <= WAIT_FOR_RESET;
                     end
+                end
+                WAIT_FOR_RESET: begin
+                    // Stay here until reset
+                    start_z1 <= 0;
+                    start_z2 <= 0;
                 end
             endcase
         end
     end
-
-// Logic Analyzer
-ila_0 u_ila (
-    .clk(clk),
-    .probe0(uart_data_valid),
-    .probe1(bram_addr),
-    .probe2(rx),
-    .probe3(start_z1),
-    .probe4(inference_start),
-    .probe5(argmax_index)
-);
-
-
-
 
 endmodule
