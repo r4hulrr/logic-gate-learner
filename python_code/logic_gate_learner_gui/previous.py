@@ -55,28 +55,18 @@ class DigitDrawer:
         img = self.image.resize((28, 28), Image.LANCZOS)
         img = ImageOps.invert(img)
 
-        # Normalize
+        # Normalize to [0, 1] and convert to Q1.15 fixed-point
         arr = np.asarray(img) / 255.0
         fixed = np.clip(np.round(arr * (1 << 15)), -32768, 32767).astype(np.int16)
         flat = fixed.flatten()
 
-        try:
-            # Save as hex, exactly like 8_q15.txt
-            with open("input_vector_q15.txt", "w") as f:
-                for val in flat:
-                    hex_val = format(val & 0xFFFF, '04X')  # force unsigned, always 4 chars
-                    f.write(hex_val + "\n")
-            print("💾 Saved to input_vector_q15.txt exactly like your working format.")
+        print("Q1.15 Preview:", flat[:100])  # Optional debug
 
-        except IOError as e:
-            print("❌ File Save Error:", e)
-
-        # (Optional) Send to FPGA as before
         try:
             with serial.Serial(UART_PORT, UART_BAUD, timeout=2) as ser:
                 for val in flat:
-                    ser.write(struct.pack('>h', val))  # send big-endian signed 16-bit
-            print("✅ Sent to FPGA.")
+                    ser.write(struct.pack('>h', val))  # send as big-endian signed 16-bit
+            print("✅ Sent to FPGA over UART.")
         except serial.SerialException as e:
             print("❌ UART Error:", e)
 
