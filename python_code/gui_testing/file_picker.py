@@ -2,6 +2,11 @@ import tkinter as tk
 from tkinter import filedialog
 from PIL import Image, ImageOps
 import numpy as np
+import serial
+import struct
+
+UART_PORT = 'COM17'  # Set to your FPGA COM port
+UART_BAUD = 115200
 
 def q15_matmul_q30(a, b):
     # Q1.15 * Q1.15 = Q2.30 → keep result as Q2.30
@@ -49,6 +54,16 @@ def predict_q15(x_q15, W1, b1, W2, b2):
     a2_q30 = q30_relu(z2_q30)
     return np.argmax(a2_q30)
 
+def send_q15_data(flat_q15_data):
+    try:
+        with serial.Serial(UART_PORT, UART_BAUD, timeout=2) as ser:
+            for val in flat_q15_data:
+                signed_val = np.int16(val).item()
+                ser.write(struct.pack('<h', signed_val))  # Little-endian 16-bit signed
+        print("✅ Data sent to FPGA.")
+    except serial.SerialException as e:
+        print("❌ UART Error:", e)
+
 def load_and_predict():
     filepath = filedialog.askopenfilename()
     if not filepath:
@@ -60,6 +75,7 @@ def load_and_predict():
     data = np.asarray(img)
     data_q15 = q15_from_float(data / 255.0).reshape(784, 1)
 
+    send_q15_data(data_q15)
     W1, b1, W2, b2 = load_q15_weights_and_biases()
     pred = predict_q15(data_q15, W1, b1, W2, b2)
     print(f"Predicted Digit: {pred}")
