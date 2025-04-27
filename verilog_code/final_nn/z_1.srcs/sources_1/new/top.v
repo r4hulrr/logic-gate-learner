@@ -2,7 +2,7 @@
 
 module top(
     input wire clk,
-    input wire reset,
+    input wire [4:0] sw,    
     input wire rx,
     output wire [3:0] leds
 );
@@ -24,6 +24,9 @@ wire signed [15:0] douta_i;
 wire [9:0] addra_i;
 wire ena_i;
 
+wire reset;
+assign reset = ~sw[0];
+
 // UART INSTANTIATION
 uart_rx uart_rx_inst (
     .clk(clk),
@@ -33,16 +36,16 @@ uart_rx uart_rx_inst (
     .data_valid(uart_data_valid)
 );
 
-uart_loader uart_loader_inst (
+uart_rx_top uart_rx_top_inst (
     .clk(clk),
-    .rst(reset),
-    .uart_rx_data(uart_rx_data),
-    .uart_data_valid(uart_data_valid),
+    .sw(sw),
+    .rx(rx),
     .bram_din(bram_din),
     .bram_addr(bram_addr),
     .bram_we(bram_we),
     .inference_start(inference_start)
 );
+
 
 // BRAM INSTANTIATION 
 blk_mem_gen_input BRAM_INPUT (
@@ -173,7 +176,7 @@ ila_0 u_ila (
     .clk(clk),
     .probe0(uart_data_valid),
     .probe1(bram_addr),
-    .probe2(bram_we),
+    .probe2(rx),
     .probe3(start_z1),
     .probe4(inference_start),
     .probe5(argmax_index)
