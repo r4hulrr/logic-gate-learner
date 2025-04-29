@@ -6,8 +6,6 @@ This project implements a fully working two-layer neural network designed for MN
 
 The whole project has been **designed from scratch** - including the initial neural network - and this documentation will cover everything about the project from the ground up - starting with the basics of a neural network and the math behind it.
 
-I will be covering the project in the order that I implemented it, and in the way I think it is best understood, but feel free to skip to any section by clicking on any of the page links below: 
+I will be covering the project in the order that I implemented it, and in the way I think it is best understood, but feel free to skip to any section that interests you using the links to the left.
 
-## Table of Contents
-- [Neural Networks Overview](/docs/neural_networks) - a brief review of the concept, the math and everything in between
 
