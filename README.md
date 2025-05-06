@@ -1,54 +1,65 @@
-# Neural Network Hardware Accelerator (Ongoing Project)
+# Logic Gate Learner – FPGA Neural Network Hardware Accelerator
 
-This project implements a fully custom 2-layer neural network from scratch for MNIST digit classification, bridging Python-based neural network design and hardware-accelerated inference using Verilog on the Arty A7-100T FPGA.
+This project implements a fully custom, hardware-accelerated digit classifier based on the MNIST dataset using a feedforward neural network deployed on an FPGA. It includes:
 
-## Key Features
-- **From-Scratch Python Model:** Forward propagation, training logic, and Q1.15 quantization of weights/biases built without external libraries.
-- **Verilog Inference Engine:** Implements matrix-vector multiply using pipelined MAC units, BRAM-backed storage, and FSM-based control logic.
-- **Fixed-Point Arithmetic:** Uses Q1.15 format throughout for hardware compatibility and precision-efficiency tradeoff.
-- **Real Hardware Constraints:** Optimized for BRAM limitations of Arty A7-100T, including exploration of tradeoffs in pipelining and memory usage.
+- Fixed-point Q1.15/Q2.30 inference implementation
+- UART communication between Python and FPGA
+- Real-time digit recognition from actual MNIST images
+- Hardware/software co-design with FPGA and Python integration
 
-## Architecture
+## Table of Contents
 
-- **Input Layer:** 784 neurons (28x28 pixel grayscale image)
-- **Hidden Layer:** 10 neurons with ReLU activation
-- **Output Layer:** 10 neurons with ReLU activation
-- **Activation Function:** ReLU (Rectified Linear Unit)
-- **Data Format:** Fixed-point Q1.15 for weights and activations
+- [Project Overview](#project-overview)
+- [Technologies Used](#technologies-used)
+- [How It Works](#how-it-works)
+- [Accuracy](#accuracy)
+- [License](#license)
 
-## Implementation Details
+## Project Overview
 
-- **Verilog Modules:**
-  - `z1.v`: Implements the first layer matrix multiplication and bias addition.
-  - `z2.v`: Implements the second layer matrix multiplication and bias addition.
-  - `top.v`: Top-level module orchestrating the data flow and control signals between layers.
-- **Fixed-Point Arithmetic:**
-  - Matrix multiplications are performed in Q2.30 format.
-  - Biases are added after left-shifting Q1.15 values by 15 bits to match Q2.30 format.
-  - ReLU activation is applied by zeroing out negative values.
-- **Argmax Logic:**
-  - Implemented to determine the index of the maximum value in the output layer.
-  - Ensures correct digit classification by comparing all output neurons.
-- **Synthesis:**
-  - The design has been synthesized using Xilinx Vivado.
-  - No external constraints are required as there are no physical I/O dependencies.
+This project was started to help me understand neural networks and develop my hardware skills. It is built to demonstrate:
 
-## Current Status
+- A two-layer neural network (784 → 10 → 10)
+- Trained in Python on MNIST and quantized to Q1.15
+- Deployed as a **Verilog-based inference core on FPGA**
+- Communicated with via UART from Python
 
-- [x] Verilog modules for both layers implemented
-- [x] Fixed-point arithmetic operations verified
-- [x] Argmax logic corrected and tested
-- [x] Design successfully synthesized in Vivado
-- [ ] Implementation on physical FPGA board pending
-- [ ] Integration with input data pipeline in progress
+The user can drop a **real 28×28 MNIST image**, and the system will send it to the FPGA, which performs inference and returns the predicted digit.
 
-## Future Work
 
-- Implement input data pipeline to feed test images into the network
-- Deploy the design on a physical FPGA board for real-time digit recognition
-- Optimize resource utilization and timing performance
-- Extend the network to support more complex datasets
+## Technologies Used
+
+| Layer | Tool |
+|:------|:-----|
+| Neural Network | Python + NumPy |
+| Quantization | Q1.15 fixed-point math |
+| Hardware Implementation | Verilog (on Xilinx Arty A7) |
+| Communication | UART via PySerial |
+| GUI/Image Loader | Python (Tkinter + PIL) |
+| Dataset | MNIST (converted to PNG format) |
+
+
+## How It Works
+
+1. User selects or draws a digit (ideally in MNIST style).
+2. Python script:
+   - Converts the image to grayscale
+   - Normalizes to [0,1], then quantizes to Q1.15
+   - Sends 784 × int16 values over UART (little-endian)
+3. FPGA receives input, performs:
+   - Layer 1: Q1.15 × Q1.15 → Q2.30 → ReLU
+   - Layer 2: Q1.15 × Q1.15 → Q2.30 → ReLU
+4. Final result (argmax of 10 outputs) gives predicted digit.
+5. Python optionally predicts in software for verification.
+
+
+## Accuracy
+
+The 2-layer network was trained using NumPy on MNIST (no frameworks like TensorFlow/PyTorch), with:
+
+- ~94% accuracy on 44,000 samples in floating point format
+- ~84% accuracy on 44,000 samples after Q1.15 quantization ( realized thorugh a python script that implements a bitwise match between Python simulation and FPGA output)
 
 ## License
+This project is licensed under the **MIT License**.
 
-This project is licensed under the [MIT License](LICENSE).
