@@ -2,10 +2,10 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Sat Jun 14 19:14:49 2025
-# Process ID: 12280
+# Start of session at: Sun Jun 15 01:55:32 2025
+# Process ID: 38576
 # Current directory: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent39312 C:\Users\Admin\Documents\Projects\logic-gate-learner\verilog_code\final_nn\z_1.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent41868 C:\Users\Admin\Documents\Projects\logic-gate-learner\verilog_code\final_nn\z_1.xpr
 # Log file: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/vivado.log
 # Journal file: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn\vivado.jou
 # Running On: MSI, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 24, Host memory: 31897 MB
@@ -57,51 +57,42 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 availab
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
-INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.gen/sources_1'.
 WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory 'C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.ip_user_files'.
 Scanning sources...
 Finished scanning sources
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_0_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_1_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_2_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_3_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_4_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_5_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_6_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_7_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_8_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_9_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_10_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_00_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_11_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_33_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_44_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_55_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_66_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_77_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_88_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_99_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_100_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_22_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'blk_mem_gen_input_synth_1' not found
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
-open_project: Time (s): cpu = 00:00:46 ; elapsed = 00:01:16 . Memory (MB): peak = 1293.316 ; gain = 310.770
+open_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1358.871 ; gain = 363.156
 update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.srcs/utils_1/imports/synth_1/top.dcp] -no_script -reset -force -quiet
+remove_files  -fileset utils_1 C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.srcs/utils_1/imports/synth_1/top.dcp
+file delete -force C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.srcs/utils_1/imports/synth_1/top.dcp
 launch_runs impl_1 -to_step write_bitstream -jobs 16
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_0'...
-ERROR: [IP_Flow 19-3477] Update of parameter 'MODELPARAM_VALUE.C_INIT_FILE_NAME' failed for IP 'blk_mem_gen_1'. 
-ERROR: [IP_Flow 19-3477] Update of parameter 'MODELPARAM_VALUE.C_INIT_FILE_NAME' failed for IP 'blk_mem_gen_1'. 
-INFO: [IP_Flow 19-3438] Customization errors found on 'blk_mem_gen_1'. Restoring to previous valid configuration.
-ERROR: [IP_Flow 19-98] Generation of the IP CORE failed.
-Failed to customize IP 'blk_mem_gen_1'. Failed to apply user parameter values.
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-launch_runs synth_1 -jobs 16
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_1'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_2'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_3'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_4'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_5'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_6'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_7'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_8'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_9'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_10'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_00'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_11'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_33'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_44'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_55'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_66'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_77'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_88'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_99'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_100'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_22'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_input'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'ila_0'...
-WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.gen/sources_1/ip/ila_0/ila_0_ooc.xdc'
-INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'ila_0'...
-[Sat Jun 14 19:20:17 2025] Launched blk_mem_gen_0_synth_1, blk_mem_gen_1_synth_1, blk_mem_gen_2_synth_1, blk_mem_gen_3_synth_1, blk_mem_gen_4_synth_1, blk_mem_gen_5_synth_1, blk_mem_gen_6_synth_1, blk_mem_gen_7_synth_1, blk_mem_gen_8_synth_1, blk_mem_gen_9_synth_1, blk_mem_gen_10_synth_1, blk_mem_gen_00_synth_1, blk_mem_gen_11_synth_1, blk_mem_gen_33_synth_1, blk_mem_gen_44_synth_1, blk_mem_gen_55_synth_1, blk_mem_gen_66_synth_1, blk_mem_gen_77_synth_1, blk_mem_gen_88_synth_1, blk_mem_gen_99_synth_1, blk_mem_gen_100_synth_1, blk_mem_gen_22_synth_1, blk_mem_gen_input_synth_1, ila_0_synth_1...
+[Sun Jun 15 01:56:27 2025] Launched blk_mem_gen_0_synth_1, blk_mem_gen_1_synth_1, blk_mem_gen_2_synth_1, blk_mem_gen_3_synth_1, blk_mem_gen_4_synth_1, blk_mem_gen_5_synth_1, blk_mem_gen_6_synth_1, blk_mem_gen_7_synth_1, blk_mem_gen_8_synth_1, blk_mem_gen_9_synth_1, blk_mem_gen_10_synth_1, blk_mem_gen_00_synth_1, blk_mem_gen_11_synth_1, blk_mem_gen_33_synth_1, blk_mem_gen_44_synth_1, blk_mem_gen_55_synth_1, blk_mem_gen_66_synth_1, blk_mem_gen_77_synth_1, blk_mem_gen_88_synth_1, blk_mem_gen_99_synth_1, blk_mem_gen_100_synth_1, blk_mem_gen_22_synth_1, blk_mem_gen_input_synth_1, synth_1...
 Run output will be captured here:
 blk_mem_gen_0_synth_1: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/blk_mem_gen_0_synth_1/runme.log
 blk_mem_gen_1_synth_1: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/blk_mem_gen_1_synth_1/runme.log
@@ -126,12 +117,8 @@ blk_mem_gen_99_synth_1: C:/Users/Admin/Documents/Projects/logic-gate-learner/ver
 blk_mem_gen_100_synth_1: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/blk_mem_gen_100_synth_1/runme.log
 blk_mem_gen_22_synth_1: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/blk_mem_gen_22_synth_1/runme.log
 blk_mem_gen_input_synth_1: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/blk_mem_gen_input_synth_1/runme.log
-ila_0_synth_1: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/ila_0_synth_1/runme.log
-[Sat Jun 14 19:20:23 2025] Launched synth_1...
-Run output will be captured here: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/synth_1/runme.log
-launch_runs: Time (s): cpu = 00:00:05 ; elapsed = 00:00:12 . Memory (MB): peak = 1385.078 ; gain = 44.996
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sat Jun 14 19:27:04 2025] Launched impl_1...
+synth_1: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/synth_1/runme.log
+[Sun Jun 15 01:56:29 2025] Launched impl_1...
 Run output will be captured here: C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/impl_1/runme.log
 open_hw_manager
 connect_hw_server -allow_non_jtag
@@ -156,30 +143,19 @@ INFO: [Labtools 27-2221] Launch Output:
 
 
 
-connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1425.246 ; gain = 0.000
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 1407.223 ; gain = 0.000
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210319BD75D9A
 set_property PROGRAM.FILE {C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
-set_property PROBES.FILE {C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
-set_property FULL_PROBES.FILE {C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
 current_hw_device [get_hw_devices xc7a100t_0]
-refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-WARNING: [Labtools 27-3361] The debug hub core was not detected.
-Resolution: 
-1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
-2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
-For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-WARNING: [Labtools 27-3413] Dropping logic core with cellname:'layer1/u_ila' at location 'uuid_0CF9DC3A032D5FEC88A004DB88EC4D32' from probes file, since it cannot be found on the programmed device.
-set_property PROBES.FILE {C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
-set_property FULL_PROBES.FILE {C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/impl_1/top.ltx} [get_hw_devices xc7a100t_0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
 set_property PROGRAM.FILE {C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.runs/impl_1/top.bit} [get_hw_devices xc7a100t_0]
 program_hw_devices [get_hw_devices xc7a100t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-2302] Device xc7a100t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
-display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a100t_0] -filter {CELL_NAME=~"layer1/u_ila"}]]
-save_wave_config {C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wcfg}
-close_hw_manager
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 exit
-INFO: [Common 17-206] Exiting Vivado at Sat Jun 14 19:49:56 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 15 02:01:56 2025...

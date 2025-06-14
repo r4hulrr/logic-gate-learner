@@ -79,7 +79,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.cache/wt [current_project]
 set_property parent.project_path C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo c:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.cache/ip [current_project]
@@ -186,12 +186,6 @@ set_property used_in_implementation false [get_files -all c:/Users/Admin/Documen
 read_ip -quiet C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.srcs/sources_1/ip/blk_mem_gen_input/blk_mem_gen_input.xci
 set_property used_in_implementation false [get_files -all c:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.gen/sources_1/ip/blk_mem_gen_input/blk_mem_gen_input_ooc.xdc]
 
-read_ip -quiet C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.srcs/sources_1/ip/ila_0/ila_0.xci
-set_property used_in_synthesis false [get_files -all c:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.gen/sources_1/ip/ila_0/ila_0_ooc.xdc]
-
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -205,8 +199,6 @@ read_xdc C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final
 set_property used_in_implementation false [get_files C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.srcs/constrs_1/new/arty_a7_100t.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
-
-read_checkpoint -auto_incremental -incremental C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

@@ -1,0 +1,29 @@
++====================+===================+==========================+
+| Launch Setup Clock | Launch Hold Clock | Pin                      |
++====================+===================+==========================+
+| sys_clk_pin        | sys_clk_pin       | layer1/accum10_reg[55]/D |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum8_reg[25]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum8_reg[28]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum8_reg[27]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum7_reg[30]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer1/accum10_reg[49]/D |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum7_reg[24]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer1/accum10_reg[53]/D |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum7_reg[25]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum8_reg[24]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer1/accum3_reg[56]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum8_reg[19]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer1/accum10_reg[48]/D |
+| sys_clk_pin        | sys_clk_pin       | layer1/accum3_reg[58]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum8_reg[22]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum8_reg[18]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum7_reg[19]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer1/accum9_reg[49]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum7_reg[18]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer1/accum2_reg[58]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum6_reg[30]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer1/accum9_reg[48]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum7_reg[22]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer1/accum2_reg[56]/D  |
+| sys_clk_pin        | sys_clk_pin       | layer2/accum8_reg[17]/D  |
++--------------------+-------------------+--------------------------+
