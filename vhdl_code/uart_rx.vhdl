@@ -23,6 +23,10 @@ architecture uart_rx_arch of uart_rx is
     constant START          := 1;
     constant DATA           := 2;
     constant STOP           := 3;
+    -- variables 
+    variable state          := IDLE;
+    variable clk_count      := 0;
+    variable 
 begin
 
 end uart_rx_arch;

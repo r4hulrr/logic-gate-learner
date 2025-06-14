@@ -5,7 +5,7 @@ import numpy as np
 import serial
 import struct
 
-UART_PORT = 'COM17'  # Set to your FPGA COM port
+UART_PORT = 'COM7'  # Set to your FPGA COM port
 UART_BAUD = 115200
 
 def q15_matmul_q30(a, b):
