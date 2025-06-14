@@ -1,2 +1,0 @@
-Breakpoint File Version 1.0
-49,true,"C:/Vitis_Vivado/matrix_mul_hardcode_2x2/matrix_mul_hardcode_2x2.srcs/sim_1/new/tb.v"
