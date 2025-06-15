@@ -199,6 +199,8 @@ read_xdc C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final
 set_property used_in_implementation false [get_files C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.srcs/constrs_1/new/arty_a7_100t.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/Admin/Documents/Projects/logic-gate-learner/verilog_code/final_nn/z_1.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
