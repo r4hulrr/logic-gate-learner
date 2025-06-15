@@ -1,5 +1,7 @@
 # Logic Gate Learner – FPGA Neural Network Hardware Accelerator
 
+![Demo_video_gif](https://github.com/user-attachments/assets/c7ba20a8-9299-45db-93a5-4c2f54ad1b74)
+
 This project implements a fully custom, hardware-accelerated digit classifier based on the MNIST dataset using a feedforward neural network deployed on an FPGA. It includes:
 
 - Fixed-point Q1.15/Q2.30 inference implementation
