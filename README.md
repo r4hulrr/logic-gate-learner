@@ -65,9 +65,9 @@ The 2-layer network was trained using NumPy on MNIST, with:
 ## Reference 
 This project was inspired and guided by the following resources:
 
-- [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen — a beautiful book which helped me develop a foundational understanding of neural networks.
-- ["FPGA Based On-Chip Learning and Classification of Digit Patterns" (Luleå University of Technology)](https://www.diva-portal.org/smash/get/diva2:1265778/FULLTEXT01.pdf) — well written and thoroughly explained thesis paper by Zhe Chen of Uppsala Universitet. Gave me insight into the more complex resources available on FPGA for matrix multiplication and different ways to tackle this with a SoC.
-- ["Hardware-Based Handwritten Character Recognition Using Neural Networks on FPGA"](https://www.seas.ucla.edu/~baek/FPGA.pdf) — Simple, clean paper by In Hwan Baek and David Boeck of UCLA which helped with simple architectural guidance and implementation techniques.
+- [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen - a beautiful book which helped me develop a foundational understanding of neural networks.
+- ["FPGA Based On-Chip Learning and Classification of Digit Patterns" (Luleå University of Technology)](https://www.diva-portal.org/smash/get/diva2:1265778/FULLTEXT01.pdf) - well written and thoroughly explained thesis paper by Zhe Chen of Uppsala Universitet. Gave me insight into the more complex resources available on FPGA for matrix multiplication and different ways to tackle this with a SoC.
+- ["Hardware-Based Handwritten Character Recognition Using Neural Networks on FPGA"](https://www.seas.ucla.edu/~baek/FPGA.pdf) - Simple, clean paper by In Hwan Baek and David Boeck of UCLA which helped with simple architectural guidance and implementation techniques.
 
 ## License
 This project is licensed under the **MIT License**.
